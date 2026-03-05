@@ -74,7 +74,7 @@ function initCounters() {
 
 function animateCounter(counter) {
   const target = parseInt(counter.dataset.target);
-  const duration = 2000;
+  const duration = 1000;
   const startTime = performance.now();
 
   function update(currentTime) {
