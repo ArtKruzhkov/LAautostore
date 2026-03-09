@@ -1,0 +1,805 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LA Autostore - Car details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet" />
+
+    <link rel="stylesheet" href="/style.css" />
+    <style>
+      :root {
+        --primary: #e53935;
+        --primary-hover: #c62828;
+        --dark: #0f0f0f;
+        --dark-secondary: #141414;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--dark);
+        color: #ffffff;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      .font-montserrat {
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      .text-primary {
+        color: var(--primary);
+      }
+      .bg-primary {
+        background-color: var(--primary);
+      }
+      .bg-primary:hover {
+        background-color: var(--primary-hover);
+      }
+      .border-primary {
+        border-color: var(--primary);
+      }
+
+      .bg-dark {
+        background-color: var(--dark);
+      }
+      .bg-dark-secondary {
+        background-color: var(--dark-secondary);
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--dark);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #333;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--primary);
+      }
+
+      /* Animations */
+      /* .fade-in-up {
+        animation: fadeInUp 0.8s ease-out forwards;
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      } */
+
+      /* .delay-100 {
+        animation-delay: 0.1s;
+      }
+      .delay-200 {
+        animation-delay: 0.2s;
+      }
+      .delay-300 {
+        animation-delay: 0.3s;
+      }
+      .delay-400 {
+        animation-delay: 0.4s;
+      } */
+
+      /* Car Card Hover */
+      .car-card {
+        transition: all 0.3s ease;
+      }
+      .car-card:hover {
+        transform: translateY(-5px);
+      }
+      .car-card:hover .car-image img {
+        transform: scale(1.05);
+      }
+      .car-image img {
+        transition: transform 0.5s ease;
+      }
+
+      /* Video Section Play Button */
+      .play-button {
+        transition: all 0.3s ease;
+      }
+      .video-container:hover .play-button {
+        transform: scale(1.1);
+        background-color: var(--primary);
+      }
+
+      /* Smooth Scroll */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Dropdown Styling */
+      select {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        background-size: 16px;
+      }
+
+      /* Range Slider */
+      input[type='range'] {
+        -webkit-appearance: none;
+        background: transparent;
+      }
+      input[type='range']::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        height: 16px;
+        width: 16px;
+        border-radius: 50%;
+        background: var(--primary);
+        cursor: pointer;
+        margin-top: -6px;
+      }
+      input[type='range']::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 4px;
+        background: #333;
+        border-radius: 2px;
+      }
+
+      /* Tab Active State */
+      .tab-btn.active {
+        background-color: var(--primary);
+        color: white;
+      }
+
+      /* Gradient Overlay */
+      .hero-gradient {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 100%);
+      }
+
+      /* Team Card Hover */
+      .team-card {
+        transition: all 0.3s ease;
+      }
+      .team-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(229, 57, 53, 0.2);
+      }
+    </style>
+  </head>
+  <body class="bg-white text-white overflow-x-hidden">
+    <!-- Navigation -->
+    <header class="sticky top-0 z-50 bg-[#0f0f0f]/95 backdrop-blur-md border-b border-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center">
+          <!-- Logo -->
+          <div class="flex-shrink-0 flex items-center logo_container">
+            <a href="/index.html" class="flex items-baseline">
+              <img src="/img/logo_autostore.png" alt="logo" class="h-8 w-auto" />
+            </a>
+          </div>
+
+          <!-- Desktop Menu -->
+          <div>
+            <div class="hidden lg:block header-top__bar_container">
+              <div class="max-w-7xl mx-auto flex justify-center items-center text-base">
+                <div class="flex items-center gap-6">
+                  <div class="flex items-center gap-2 text-gray-300">
+                    <i data-lucide="phone" class="w-4 h-4 text-primary"></i>
+                    <span>(424) 230-6042</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-gray-300">
+                    <i data-lucide="mail" class="w-4 h-4 text-primary"></i>
+                    <span>info@laautostore.com</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-gray-300">
+                    <i data-lucide="clock" class="w-4 h-4 text-primary"></i>
+                    <span>Mon - Sat: 9:00 - 18:00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <nav
+              class="hidden md:flex justify-center items-center gap-8 header-bottom__bar_container">
+              <a
+                href="stock.html"
+                class="text-base font-medium tracking-wide text-gray-300 hover:text-[var(--primary-hover)] transition uppercase"
+                >Stock
+              </a>
+              <a
+                href="services.html"
+                class="text-base font-medium tracking-wide text-gray-300 hover:text-[var(--primary-hover)] transition uppercase"
+                >Services
+              </a>
+              <a
+                href="advantages.html"
+                class="text-base font-medium tracking-wide text-gray-300 hover:text-[var(--primary-hover)] transition uppercase"
+                >Advantages
+              </a>
+              <a
+                href="aboutUs.html"
+                class="text-base font-medium tracking-wide text-gray-300 hover:text-[var(--primary-hover)] transition uppercase"
+                >About Us
+              </a>
+              <a
+                href="#contacts"
+                class="text-base font-medium tracking-wide text-gray-300 hover:text-[var(--primary-hover)] transition uppercase"
+                >Contacts
+              </a>
+            </nav>
+          </div>
+
+          <!-- CTA Button -->
+          <div class="hidden md:block">
+            <button class="btn-order">Order</button>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <button id="mobile-menu-btn" class="md:hidden text-white p-2">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden bg-dark-secondary border-t border-gray-800">
+        <div class="px-4 pt-2 pb-4 space-y-1">
+          <a
+            href="#stock"
+            class="block px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800"
+            >Stock</a
+          >
+          <a
+            href="#advantages"
+            class="block px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800"
+            >Advantages</a
+          >
+          <a
+            href="#about"
+            class="block px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800"
+            >About Us</a
+          >
+          <a
+            href="#contacts"
+            class="block px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800"
+            >Contacts</a
+          >
+          <a href="#" class="block px-3 py-2 text-sm text-white bg-primary mt-4 text-center"
+            >Order Now</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-14 px-4 bg-dark item-hero_container">
+      <div class="max-w-7xl mx-auto mb-[3.2rem]">
+        <!-- Breadcrumb -->
+        <div class="text-xs text-gray-400 mb-3">
+          <a href="index.html" class="hover:text-[var(--primary-hover)] transition">Home</a>
+          <span class="mx-2 text-primary">/</span>
+          <span class="text-white">Car Details</span>
+        </div>
+
+        <!-- Title + Price -->
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
+          <h1 class="text-3xl md:text-4xl font-montserrat font-bold">
+            Audi Q8 e-tron
+            <div class="w-16 h-[2px] bg-primary mt-4"></div>
+          </h1>
+          <div class="text-2xl font-montserrat font-bold text-primary mt-2 md:mt-0">$53,000</div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          <!-- Car Info -->
+          <div class="flex flex-col justify-between">
+            <!-- Car Properties -->
+            <div class="grid grid-cols-2 gap-4 text-sm mb-8">
+              <div class="flex items-center gap-2">
+                <i data-lucide="calendar" class="w-4 h-4 text-primary"></i>
+                <span>2023</span>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <i data-lucide="gauge" class="w-4 h-4 text-primary"></i>
+                <span>54,000 km</span>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <i data-lucide="settings" class="w-4 h-4 text-primary"></i>
+                <span>Automatic</span>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <i data-lucide="fuel" class="w-4 h-4 text-primary"></i>
+                <span>Electric</span>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <i data-lucide="users" class="w-4 h-4 text-primary"></i>
+                <span>5 seats</span>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <i data-lucide="car" class="w-4 h-4 text-primary"></i>
+                <span>SUV</span>
+              </div>
+            </div>
+
+            <!-- Tabs -->
+            <div>
+              <div class="flex mb-6">
+                <span class="text-md uppercase text-white font-semibold">About</span>
+              </div>
+
+              <div class="text-sm text-gray-300 leading-relaxed">
+                <p class="mb-4">
+                  The Audi Q8 e-tron is a premium electric SUV combining advanced technology, luxury
+                  interior, and powerful performance.
+                </p>
+
+                <ul class="space-y-2">
+                  <li class="flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                    Power: 408 hp
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                    Range: up to 582 km
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                    Interior: Black leather
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                    Color: Daytona Gray Pearl
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                    Emission standard: EURO 6
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="mt-8">
+              <button class="btn-primary px-8 py-3">Buy This Car</button>
+            </div>
+          </div>
+
+          <!-- Car Gallery -->
+          <div>
+            <div class="overflow-hidden rounded-lg mb-4">
+              <img
+                src="img/offers/audiQ8.webp"
+                alt="Audi Q8"
+                class="w-full h-[420px] object-cover" />
+            </div>
+
+            <!-- Thumbnails -->
+            <div class="grid grid-cols-4 gap-3">
+              <img
+                src="img/offers/Car.webp"
+                class="cursor-pointer object-cover h-24 w-full rounded" />
+              <img
+                src="img/offers/Car2.jpg"
+                class="cursor-pointer object-cover h-24 w-full rounded" />
+              <img
+                src="img/offers/Car.webp"
+                class="cursor-pointer object-cover h-24 w-full rounded" />
+              <img
+                src="img/offers/Car2.jpg"
+                class="cursor-pointer object-cover h-24 w-full rounded" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Latest Offers Section -->
+    <section id="stock" class="py-16 px-4 bg-white reveal item-latest-offers_container">
+      <div class="max-w-7xl mx-auto">
+        <!-- Section Header -->
+        <div
+          class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+          <div class="accent-line pl-6">
+            <h3 class="text-xl font-montserrat font-bold text-black">Latest offers</h3>
+            <p class="text-xs text-gray-400">Recently added vehicles</p>
+          </div>
+
+          <!-- Filter Tabs -->
+          <div
+            class="flex flex-col sm:flex-row justify-between items-start sm:items-center filter_container">
+            <!-- Show All Button -->
+            <button class="tab-btn active px-6 py-2 text-xs uppercase tracking-wider text-white">
+              <span> Show All </span>
+            </button>
+
+            <!-- Brand Dropdown -->
+            <div class="relative w-full sm:w-64">
+              <select
+                id="brand-filter"
+                class="w-full bg-white text-black border border-[#0f0f0f] px-4 py-2 text-xs uppercase tracking-wider focus:outline-none cursor-pointer">
+                <option value="all">Select Brand</option>
+                <option value="audi">Audi</option>
+                <option value="bmw">BMW</option>
+                <option value="volkswagen">Volkswagen</option>
+                <option value="ford">Ford</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="porsche">Porsche</option>
+                <option value="dodge">Dodge</option>
+                <option value="chevrolet">Chevrolet</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Car Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="car-grid">
+          <!-- Car Card 1 -->
+          <div class="car-card bg-dark-secondary overflow-hidden group cursor-pointer delay-100">
+            <div class="car-image relative overflow-hidden aspect-[4/3]">
+              <img
+                src="img/offers/Car.webp"
+                alt="Audi Q8 e-tron"
+                class="w-full h-full object-cover" />
+              <div class="absolute bottom-0 left-0 bg-primary px-3 py-1 text-xs font-medium">
+                New Arrival
+              </div>
+              <div
+                class="absolute top-0 right-0 m-3 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                <i data-lucide="shield" class="w-4 h-4 text-white"></i>
+              </div>
+            </div>
+            <div class="p-4 border border-gray-800 border-t-0">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h4 class="text-sm font-medium text-white">Audi Q8 e-tron</h4>
+                  <p class="text-xs text-gray-500">Sportback 55 quattro</p>
+                </div>
+                <span class="text-primary font-montserrat font-bold">€82,000</span>
+              </div>
+              <div class="flex items-center gap-3 text-xs text-gray-400 mt-3">
+                <span>2023</span>
+                <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
+                <span>34,500 km</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Car Card 2 -->
+          <div class="car-card bg-dark-secondary overflow-hidden group cursor-pointer delay-200">
+            <div class="car-image relative overflow-hidden aspect-[4/3]">
+              <img src="img/offers/Car2.jpg" alt="Audi RS6" class="w-full h-full object-cover" />
+              <div class="absolute bottom-0 left-0 bg-primary px-3 py-1 text-xs font-medium">
+                Top Deal
+              </div>
+              <div
+                class="absolute top-0 right-0 m-3 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                <i data-lucide="shield" class="w-4 h-4 text-white"></i>
+              </div>
+            </div>
+            <div class="p-4 border border-gray-800 border-t-0">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h4 class="text-sm font-medium text-white">Audi RS6</h4>
+                  <p class="text-xs text-gray-500">Avant 4.0 TFSI Quattro</p>
+                </div>
+                <span class="text-primary font-montserrat font-bold">€78,500</span>
+              </div>
+              <div class="flex items-center gap-3 text-xs text-gray-400 mt-3">
+                <span>2021</span>
+                <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
+                <span>18,000 km</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Car Card 3 -->
+          <div class="car-card bg-dark-secondary overflow-hidden group cursor-pointer delay-300">
+            <div class="car-image relative overflow-hidden aspect-[4/3]">
+              <img
+                src="img/offers/Car.webp"
+                alt="Mercedes G63 AMG"
+                class="w-full h-full object-cover" />
+              <div class="absolute bottom-0 left-0 bg-primary px-3 py-1 text-xs font-medium">
+                Premium
+              </div>
+              <div
+                class="absolute top-0 right-0 m-3 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                <i data-lucide="shield" class="w-4 h-4 text-white"></i>
+              </div>
+            </div>
+            <div class="p-4 border border-gray-800 border-t-0">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h4 class="text-sm font-medium text-white">Mercedes G63 AMG</h4>
+                  <p class="text-xs text-gray-500">4MATIC Stronger Than</p>
+                </div>
+                <span class="text-primary font-montserrat font-bold">€158,000</span>
+              </div>
+              <div class="flex items-center gap-3 text-xs text-gray-400 mt-3">
+                <span>2020</span>
+                <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
+                <span>48,000 km</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Car Card 4 -->
+          <div class="car-card bg-dark-secondary overflow-hidden group cursor-pointer delay-100">
+            <div class="car-image relative overflow-hidden aspect-[4/3]">
+              <img src="img/offers/Car.webp" alt="BMW M5" class="w-full h-full object-cover" />
+              <div
+                class="absolute top-0 right-0 m-3 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                <i data-lucide="shield" class="w-4 h-4 text-white"></i>
+              </div>
+            </div>
+            <div class="p-4 border border-gray-800 border-t-0">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h4 class="text-sm font-medium text-white">BMW M5</h4>
+                  <p class="text-xs text-gray-500">Competition xDrive</p>
+                </div>
+                <span class="text-primary font-montserrat font-bold">€92,500</span>
+              </div>
+              <div class="flex items-center gap-3 text-xs text-gray-400 mt-3">
+                <span>2020</span>
+                <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
+                <span>38,000 km</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Car Card 5 -->
+          <div class="car-card bg-dark-secondary overflow-hidden group cursor-pointer delay-200">
+            <div class="car-image relative overflow-hidden aspect-[4/3]">
+              <img
+                src="img/offers/Car.webp"
+                alt="Tesla Model S"
+                class="w-full h-full object-cover" />
+              <div class="absolute bottom-0 left-0 bg-green-600 px-3 py-1 text-xs font-medium">
+                Electric
+              </div>
+              <div
+                class="absolute top-0 right-0 m-3 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                <i data-lucide="shield" class="w-4 h-4 text-white"></i>
+              </div>
+            </div>
+            <div class="p-4 border border-gray-800 border-t-0">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h4 class="text-sm font-medium text-white">Tesla Model S</h4>
+                  <p class="text-xs text-gray-500">Plaid AWD</p>
+                </div>
+                <span class="text-primary font-montserrat font-bold">€115,000</span>
+              </div>
+              <div class="flex items-center gap-3 text-xs text-gray-400 mt-3">
+                <span>2023</span>
+                <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
+                <span>12,000 km</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Car Card 6 -->
+          <div class="car-card bg-dark-secondary overflow-hidden group cursor-pointer delay-300">
+            <div class="car-image relative overflow-hidden aspect-[4/3]">
+              <img
+                src="img/offers/Car.webp"
+                alt="BMW 7 Series"
+                class="w-full h-full object-cover" />
+              <div
+                class="absolute top-0 right-0 m-3 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                <i data-lucide="shield" class="w-4 h-4 text-white"></i>
+              </div>
+            </div>
+            <div class="p-4 border border-gray-800 border-t-0">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h4 class="text-sm font-medium text-white">BMW 7 Series</h4>
+                  <p class="text-xs text-gray-500">740d xDrive Luxury</p>
+                </div>
+                <span class="text-primary font-montserrat font-bold">€68,000</span>
+              </div>
+              <div class="flex items-center gap-3 text-xs text-gray-400 mt-3">
+                <span>2019</span>
+                <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
+                <span>65,000 km</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- View All Button -->
+        <div class="text-center mt-12">
+          <button
+            class="border border-gray-600 text-red-600 px-8 py-3 text-xs font-medium uppercase tracking-wider hover:bg-primary hover:border-primary transition">
+            All Cars
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacts" class="relative py-16 px-4 bg-dark overflow-hidden">
+      <!-- Background Image -->
+      <div class="absolute inset-0 z-0 opacity-80">
+        <img
+          src="img/contacts-img.jpg"
+          alt="contact-section-background"
+          class="w-full h-full object-cover" />
+      </div>
+      <div class="absolute inset-0 bg-gradient-to-b from-dark via-dark/95 to-dark z-0"></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 gap-12 max-w-[1280px] mx-auto">
+          <!-- Contact Info -->
+          <div class="reveal contant-info_container">
+            <div class="flex flex-col sm:flex-row gap-8 mb-8">
+              <div class="accent-line-1 pl-6">
+                <h3 class="text-lg font-montserrat font-bold text-white mb-1">Address</h3>
+                <p class="text-xs text-gray-400">
+                  21146 Ventura Blvd suite 3<br />
+                  Woodland Hills, CA 91364
+                </p>
+              </div>
+              <div class="flex-1">
+                <div class="accent-line pl-6 pb-1 mb-4">
+                  <h3 class="text-lg font-montserrat font-bold text-white">Contacts</h3>
+                  <p class="text-xs text-gray-400">(424) 230-6042<br />info@laautostore.com</p>
+                </div>
+                <button
+                  class="bg-primary text-white px-6 py-2 text-xs font-medium uppercase tracking-wider hover:bg-primary-hover transition mt-2">
+                  Write to Us
+                </button>
+              </div>
+            </div>
+
+            <!-- Team Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <!-- Team Member 1 -->
+              <div class="team-card bg-dark-secondary border border-gray-800 overflow-hidden">
+                <div class="flex">
+                  <div class="p-4 flex-1">
+                    <h4 class="text-sm font-medium text-white">Levon</h4>
+                    <p class="text-xs text-gray-500 mb-3">Chief Executive Officer</p>
+                    <div class="space-y-1">
+                      <div class="flex items-center gap-2 text-xs text-gray-400">
+                        <i data-lucide="phone" class="w-3 h-3 text-primary"></i>
+                        <span>(424) 230-6042</span>
+                      </div>
+                      <div class="flex items-center gap-2 text-xs text-gray-400">
+                        <i data-lucide="mail" class="w-3 h-3 text-primary"></i>
+                        <span>levon@laautostore.com</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="w-24 h-24 relative">
+                    <img
+                      src="img/avatarCEO-img.png"
+                      alt="Levon"
+                      class="w-full h-full object-cover" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Team Member 2 -->
+              <div class="team-card bg-dark-secondary border border-gray-800 overflow-hidden">
+                <div class="flex">
+                  <div class="p-4 flex-1">
+                    <h4 class="text-sm font-medium text-white">Nikita</h4>
+                    <p class="text-xs text-gray-500 mb-3">Sales Associate</p>
+                    <div class="space-y-1">
+                      <div class="flex items-center gap-2 text-xs text-gray-400">
+                        <i data-lucide="phone" class="w-3 h-3 text-primary"></i>
+                        <span>(424) 230-6042</span>
+                      </div>
+                      <div class="flex items-center gap-2 text-xs text-gray-400">
+                        <i data-lucide="mail" class="w-3 h-3 text-primary"></i>
+                        <span>nikita@laautostore.com</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="w-24 h-24 relative">
+                    <img
+                      src="img/avatarCEO-img.png"
+                      alt="Nikita"
+                      class="w-full h-full object-cover" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Google Maps Placeholder -->
+          <div>
+            <div
+              class="group reveal delay-200 relative w-[28rem] min-h-[400px] border border-gray-800 rounded-lg">
+              <!-- Google Map -->
+              <iframe
+                src="https://www.google.com/maps?q=LA+AUTOSTORE,+21146+Ventura+Blvd+Suite+3,+Woodland+Hills,+CA+91364,+United+States&output=embed"
+                class="absolute inset-0 w-full h-full"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+              <!-- Dark overlay -->
+              <div
+                class="absolute inset-0 bg-black/40 pointer-events-none transition-opacity duration-300 group-hover:opacity-0"></div>
+            </div>
+            <!-- Button -->
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=LA+AUTOSTORE,+21146+Ventura+Blvd+Suite+3,+Woodland+Hills,+CA+91364"
+              target="_blank"
+              class="mt-4 bg-primary text-white px-6 py-2 text-xs uppercase tracking-wider hover:bg-primary-hover transition inline-flex items-center gap-2 rounded">
+              <span>Get Directions</span> <i data-lucide="arrow-right" class="w-3 h-3"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark border-t border-gray-800 py-8 px-4 footer_main">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+          <!-- Logo -->
+          <div class="flex-shrink-0 flex items-center logo_container">
+            <a href="/index.html" class="flex items-baseline">
+              <img src="/img/logo_autostore.png" alt="logo" class="h-8 w-auto" />
+            </a>
+          </div>
+
+          <!-- Nav -->
+          <div class="flex gap-6 text-xs text-gray-300 uppercase tracking-wider">
+            <a href="stock.html" class="hover:text-[var(--primary-hover)] transition">Stock</a>
+            <a href="services.html" class="hover:text-[var(--primary-hover)] transition">
+              Services
+            </a>
+            <a href="advantages.html" class="hover:text-[var(--primary-hover)] transition">
+              Advantages
+            </a>
+            <a href="aboutUs.html" class="hover:text-[var(--primary-hover)] transition">About us</a>
+            <a href="#contacts" class="hover:text-[var(--primary-hover)] transition"> Contacts </a>
+            <a href="#" class="hover:text-[var(--primary-hover)] transition">Privacy Policy</a>
+          </div>
+
+          <!-- Social -->
+          <div class="flex gap-4">
+            <a
+              href="#"
+              class="w-8 h-8 border border-gray-700 flex items-center justify-center text-gray-400 hover:text-white hover:border-primary hover:bg-primary transition rounded-full">
+              <i data-lucide="facebook" class="w-4 h-4"></i>
+            </a>
+            <a
+              href="#"
+              class="w-8 h-8 border border-gray-700 flex items-center justify-center text-gray-400 hover:text-white hover:border-primary hover:bg-primary transition rounded-full">
+              <i data-lucide="instagram" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-800 mt-8 pt-6 text-center">
+          <p class="text-xs text-gray-500">© 2026 LA Autostore. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

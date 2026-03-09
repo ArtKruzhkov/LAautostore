@@ -647,15 +647,27 @@ input:focus-visible {
 .section_gallery::before {
   content: '';
   position: absolute;
-  top: 0;
+  top: -2px;
   left: 0;
   width: 100%;
   height: 45px;
 
   background: var(--dark);
 
-  -webkit-clip-path: polygon(0 100%, 50% 0, 100% 100%, 100% 0, 0 0);
-  clip-path: polygon(0 100%, 50% 0, 100% 100%, 100% 0, 0 0);
+  /* -webkit-clip-path: polygon(0 100%, 50% 0, 100% 100%, 100% 0, 0 0);
+  clip-path: polygon(0 100%, 50% 0, 100% 100%, 100% 0, 0 0); */
+
+  -webkit-clip-path: polygon(0 100%, 50% 2px, 100% 100%, 100% 0, 0 0);
+  clip-path: polygon(0 100%, 50% 2px, 100% 100%, 100% 0, 0 0);
+
+  /* content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: #ffffff;
+  clip-path: polygon(0 100%, 50% 0, 100% 100%); */
 }
 
 .client-gallery {
@@ -737,6 +749,91 @@ input:focus-visible {
 }
 
 #services::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: #ffffff;
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+}
+
+.item-latest-offers_container {
+  position: relative;
+  z-index: 1;
+}
+
+.item-latest-offers_container::after {
+  content: '';
+  position: absolute;
+  bottom: -48px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: #ffffff;
+  clip-path: polygon(0 0, 100% 0, 100% 1px, 50% 100%, 0 1px);
+}
+
+.item-hero_container {
+  position: relative;
+  z-index: 1;
+}
+
+.item-hero_container::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: #ffffff;
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+  z-index: 3;
+}
+
+#stock {
+  position: relative;
+  z-index: 1;
+}
+
+#stock::after {
+  content: '';
+  position: absolute;
+  bottom: -48px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: #ffffff;
+  clip-path: polygon(0 0, 100% 0, 100% 1px, 50% 100%, 0 1px);
+}
+
+.stock-image_container {
+  position: relative;
+  z-index: 1;
+}
+
+.stock-image_container::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 45px;
+  background: white;
+
+  -webkit-clip-path: polygon(0 100%, 0 0, 50% calc(100% - 1px), 100% 0, 100% 100%, 50% 100%);
+  clip-path: polygon(0 100%, 0 0, 50% calc(100% - 1px), 100% 0, 100% 100%, 50% 100%);
+
+  z-index: 2;
+}
+
+#privacy_section {
+  position: relative;
+  z-index: 1;
+}
+
+#privacy_section::after {
   content: '';
   position: absolute;
   bottom: -1px;
