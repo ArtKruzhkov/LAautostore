@@ -44,6 +44,8 @@ function initCatalogPagination() {
         'px-4 py-2 text-xs text-gray-400 border border-gray-300 hover:bg-red-500 hover:text-white transition';
 
       if (i === currentPage) {
+        btn.classList.remove('text-gray-400');
+        btn.classList.remove('border-gray-300');
         btn.classList.add('bg-red-500', 'text-white', 'border-primary');
       }
 

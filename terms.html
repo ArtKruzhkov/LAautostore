@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LA Autostore - Terms of Service</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body class="bg-white text-white overflow-x-hidden">
+    <!-- Navigation -->
+    <header class="sticky top-0 z-50 bg-[#0f0f0f]/95 backdrop-blur-md border-b border-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center">
+          <!-- Logo -->
+          <div class="flex-shrink-0 flex items-center logo_container">
+            <a href="/index.html" class="flex items-baseline">
+              <img src="/img/logo_autostore.png" alt="logo" class="h-8 w-auto" />
+            </a>
+          </div>
+
+          <!-- Desktop Menu -->
+          <div>
+            <div class="hidden lg:block header-top__bar_container">
+              <div class="max-w-7xl mx-auto flex justify-center items-center text-base">
+                <div class="flex items-center gap-6">
+                  <div class="flex items-center gap-2 text-gray-300">
+                    <i data-lucide="phone" class="w-4 h-4 text-primary"></i>
+                    <span>(424) 230-6042</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-gray-300">
+                    <i data-lucide="mail" class="w-4 h-4 text-primary"></i>
+                    <span>info@laautostore.com</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-gray-300">
+                    <i data-lucide="clock" class="w-4 h-4 text-primary"></i>
+                    <span>Mon - Sat: 9:00 - 18:00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <nav
+              class="hidden md:flex justify-center items-center gap-8 header-bottom__bar_container">
+              <a
+                href="stock.html"
+                class="text-base font-medium tracking-wide text-gray-300 hover:text-[var(--primary-hover)] transition uppercase"
+                >Stock
+              </a>
+              <a
+                href="services.html"
+                class="text-base font-medium tracking-wide text-gray-300 hover:text-[var(--primary-hover)] transition uppercase"
+                >Services
+              </a>
+              <a
+                href="advantages.html"
+                class="text-base font-medium tracking-wide text-gray-300 hover:text-[var(--primary-hover)] transition uppercase"
+                >Advantages
+              </a>
+              <a
+                href="aboutUs.html"
+                class="text-base font-medium tracking-wide text-gray-300 hover:text-[var(--primary-hover)] transition uppercase"
+                >About Us
+              </a>
+              <a
+                href="#contacts"
+                class="text-base font-medium tracking-wide text-gray-300 hover:text-[var(--primary-hover)] transition uppercase"
+                >Contacts
+              </a>
+            </nav>
+          </div>
+
+          <!-- CTA Button -->
+          <div class="hidden md:block">
+            <button class="btn-order">Order</button>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <button id="mobile-menu-btn" class="md:hidden text-white p-2">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden bg-dark-secondary border-t border-gray-800">
+        <div class="px-4 pt-2 pb-4 space-y-1">
+          <a
+            href="#stock"
+            class="block px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800"
+            >Stock</a
+          >
+          <a
+            href="#advantages"
+            class="block px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800"
+            >Advantages</a
+          >
+          <a
+            href="#about"
+            class="block px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800"
+            >About Us</a
+          >
+          <a
+            href="#contacts"
+            class="block px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800"
+            >Contacts</a
+          >
+          <a href="#" class="block px-3 py-2 text-sm text-white bg-primary mt-4 text-center"
+            >Order Now</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-dark text-white" id="terms_section">
+      <!-- IMAGE BLOCK -->
+      <div class="relative h-[53vh] min-h-[500px] overflow-hidden image_container">
+        <img
+          src="img/terms.jpg"
+          alt="terms-img"
+          class="absolute inset-0 w-full h-full object-cover" />
+
+        <!-- Dark overlay -->
+        <div class="absolute inset-0 bg-black/60"></div>
+
+        <!-- Title on image -->
+        <div class="absolute top-10 left-10 z-10">
+          <!-- Breadcrumb -->
+          <div class="text-xs text-gray-400 mb-3">
+            <a href="index.html" class="hover:text-[var(--primary-hover)] transition">Home</a>
+            <span class="mx-2 text-primary">/</span>
+            <span class="text-white">Terms of Service</span>
+          </div>
+
+          <h1 class="text-5xl md:text-5xl font-montserrat tracking-wide font-bold">
+            <span class="inline-block">Terms of Service</span>
+          </h1>
+          <div class="w-16 h-[2px] bg-primary mt-4"></div>
+        </div>
+      </div>
+
+      <!-- CONTENT BLOCK -->
+      <div class="max-w-4xl mx-auto px-6 py-14">
+        <h2 class="text-3xl text-gray-300 mb-10 font-bold text-center">Terms of Service</h2>
+
+        <div class="space-y-8 text-gray-300 leading-relaxed text-sm md:text-base">
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-2">Introduction</h3>
+            <p>
+              Welcome to <strong>LA Autostore</strong>. These Terms of Service govern your use of
+              our website and services. By accessing or using this website, you agree to comply with
+              these terms and conditions.
+            </p>
+            <p>
+              LA Autostore is an independent automotive dealer located at
+              <strong>21146 Ventura Blvd Suite 3, Woodland Hills, CA 91364</strong>. We provide
+              services including vehicle sales, car rental, and assistance with automotive leasing
+              through trusted partners.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-2">Use of Our Website</h3>
+            <p>
+              By using this website, you agree to use it only for lawful purposes. You must not use
+              the website in any way that could damage, disable, or impair our services or interfere
+              with other users.
+            </p>
+            <p>
+              All content provided on this website is for informational purposes regarding our
+              available vehicles, services, and business operations.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-2">Vehicle Information</h3>
+            <p>
+              LA Autostore strives to ensure that all vehicle descriptions, prices, and
+              specifications displayed on the website are accurate. However, vehicle availability,
+              pricing, and details may change without notice.
+            </p>
+            <p>
+              The information provided on this website should not be considered a binding offer.
+              Final pricing and vehicle conditions are confirmed directly with our sales
+              representatives.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-2">Purchases and Transactions</h3>
+            <p>
+              Any purchase, rental agreement, or leasing arrangement made through LA Autostore is
+              subject to separate contractual agreements and applicable laws in the State of
+              California.
+            </p>
+            <p>
+              Customers are responsible for reviewing all documents, financing terms, and agreements
+              before completing a transaction.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-2">Leasing and Financing</h3>
+            <p>
+              LA Autostore may assist customers in connecting with financial institutions or
+              automotive brands offering leasing and financing programs. These services are provided
+              through third-party partners, and their terms and approvals are subject to their own
+              policies and requirements.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-2">Limitation of Liability</h3>
+            <p>
+              LA Autostore shall not be liable for any direct, indirect, incidental, or
+              consequential damages arising from the use of our website or reliance on information
+              provided on the website.
+            </p>
+            <p>
+              While we strive to maintain accurate and updated information, we cannot guarantee that
+              all content is free from errors or omissions.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-2">Changes to These Terms</h3>
+            <p>
+              LA Autostore reserves the right to modify or update these Terms of Service at any
+              time. Updated terms will be posted on this page with the revised date.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-2">Contact Information</h3>
+            <p>If you have questions regarding these Terms of Service, you may contact us at:</p>
+
+            <p class="mt-2">
+              <strong>LA Autostore</strong><br />
+              21146 Ventura Blvd Suite 3<br />
+              Woodland Hills, CA 91364<br />
+              Phone: (424) 230-6042<br />
+              Email: info@laautostore.com
+            </p>
+          </div>
+
+          <p class="text-xs text-gray-500 mt-10 text-center">Last updated: March 2026</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="py-16 px-4 bg-white reviews-section">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
+          <div class="accent-line pl-6">
+            <h3 class="text-xl font-montserrat font-bold text-black mb-1">Reviews</h3>
+            <p class="text-xs text-gray-400">What our clients say about us</p>
+          </div>
+          <div class="flex gap-2">
+            <button id="prev-review" class="review-btn-arrow">
+              <i data-lucide="chevron-left" class="w-5 h-5"></i>
+            </button>
+            <button id="next-review" class="review-btn-arrow">
+              <i data-lucide="chevron-right" class="w-5 h-5"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="reviews-container">
+          <!-- Review 1 -->
+          <div class="bg-dark-secondary p-6 border border-gray-800 delay-100">
+            <div class="flex items-start gap-4">
+              <img
+                src="https://static.photos/people/100x100/1"
+                alt="Customer"
+                class="w-12 h-12 rounded-full object-cover border-2 border-primary" />
+              <div class="flex-1">
+                <div class="flex justify-between items-start mb-2">
+                  <div>
+                    <h4 class="text-sm font-medium text-white">Melanie Lemaire</h4>
+                    <p class="text-xs text-gray-500">2 days ago</p>
+                  </div>
+                  <i data-lucide="facebook" class="w-5 h-5 text-blue-600"></i>
+                </div>
+                <p class="text-sm text-gray-400 leading-relaxed">
+                  Very friendly and good service. Still very satisfied with my dream car!
+                  Professional approach and excellent after-sales support.
+                </p>
+                <div class="flex gap-1 mt-3">
+                  <i data-lucide="star" class="w-3 h-3 text-yellow-500 fill-yellow-500"></i>
+                  <i data-lucide="star" class="w-3 h-3 text-yellow-500 fill-yellow-500"></i>
+                  <i data-lucide="star" class="w-3 h-3 text-yellow-500 fill-yellow-500"></i>
+                  <i data-lucide="star" class="w-3 h-3 text-yellow-500 fill-yellow-500"></i>
+                  <i data-lucide="star" class="w-3 h-3 text-yellow-500 fill-yellow-500"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 2 -->
+          <div class="bg-dark-secondary p-6 border border-gray-800 delay-200">
+            <div class="flex items-start gap-4">
+              <img
+                src="https://static.photos/people/100x100/2"
+                alt="Customer"
+                class="w-12 h-12 rounded-full object-cover border-2 border-primary" />
+              <div class="flex-1">
+                <div class="flex justify-between items-start mb-2">
+                  <div>
+                    <h4 class="text-sm font-medium text-white">Jorg Sierens</h4>
+                    <p class="text-xs text-gray-500">1 week ago</p>
+                  </div>
+                  <i data-lucide="facebook" class="w-5 h-5 text-blue-600"></i>
+                </div>
+                <p class="text-sm text-gray-400 leading-relaxed">
+                  Very friendly seller, honest and nice service! Nice choices of various cars. The
+                  buying process was smooth and transparent.
+                </p>
+                <div class="flex gap-1 mt-3">
+                  <i data-lucide="star" class="w-3 h-3 text-yellow-500 fill-yellow-500"></i>
+                  <i data-lucide="star" class="w-3 h-3 text-yellow-500 fill-yellow-500"></i>
+                  <i data-lucide="star" class="w-3 h-3 text-yellow-500 fill-yellow-500"></i>
+                  <i data-lucide="star" class="w-3 h-3 text-yellow-500 fill-yellow-500"></i>
+                  <i data-lucide="star" class="w-3 h-3 text-yellow-500 fill-yellow-500"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 3 -->
+          <div class="bg-dark-secondary p-6 border border-gray-800 delay-300">
+            <div class="flex items-start gap-4">
+              <img
+                src="https://static.photos/people/100x100/3"
+                alt="Customer"
+                class="w-12 h-12 rounded-full object-cover border-2 border-primary" />
+              <div class="flex-1">
+                <div class="flex justify-between items-start mb-2">
+                  <div>
+                    <h4 class="text-sm font-medium text-white">Kiana Van Melkebeke</h4>
+                    <p class="text-xs text-gray-500">2 weeks ago</p>
+                  </div>
+                  <i data-lucide="facebook" class="w-5 h-5 text-blue-600"></i>
+                </div>
+                <p class="text-sm text-gray-400 leading-relaxed">
+                  Top service and SUPER friendly people! Fair price and everything in order. Bought
+                  our 4th car now! THANK YOU!
+                </p>
+                <div class="flex gap-1 mt-3">
+                  <i data-lucide="star" class="w-3 h-3 text-yellow-500 fill-yellow-500"></i>
+                  <i data-lucide="star" class="w-3 h-3 text-yellow-500 fill-yellow-500"></i>
+                  <i data-lucide="star" class="w-3 h-3 text-yellow-500 fill-yellow-500"></i>
+                  <i data-lucide="star" class="w-3 h-3 text-yellow-500 fill-yellow-500"></i>
+                  <i data-lucide="star" class="w-3 h-3 text-yellow-500 fill-yellow-500"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 4 -->
+          <div class="bg-dark-secondary p-6 border border-gray-800 delay-400">
+            <div class="flex items-start gap-4">
+              <img
+                src="https://static.photos/people/100x100/4"
+                alt="Customer"
+                class="w-12 h-12 rounded-full object-cover border-2 border-primary" />
+              <div class="flex-1">
+                <div class="flex justify-between items-start mb-2">
+                  <div>
+                    <h4 class="text-sm font-medium text-white">Jean-Pierre Peeters</h4>
+                    <p class="text-xs text-gray-500">3 weeks ago</p>
+                  </div>
+                  <i data-lucide="facebook" class="w-5 h-5 text-blue-600"></i>
+                </div>
+                <p class="text-sm text-gray-400 leading-relaxed">
+                  Very friendly people AND top service! Very correct thing! Very satisfied with the
+                  Hyundai i30 N that I bought!
+                </p>
+                <div class="flex gap-1 mt-3">
+                  <i data-lucide="star" class="w-3 h-3 text-yellow-500 fill-yellow-500"></i>
+                  <i data-lucide="star" class="w-3 h-3 text-yellow-500 fill-yellow-500"></i>
+                  <i data-lucide="star" class="w-3 h-3 text-yellow-500 fill-yellow-500"></i>
+                  <i data-lucide="star" class="w-3 h-3 text-yellow-500 fill-yellow-500"></i>
+                  <i data-lucide="star" class="w-3 h-3 text-yellow-500 fill-yellow-500"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-8">
+          <a
+            href="#"
+            class="inline-flex items-center gap-2 bg-[#1877F2] text-white px-6 py-3 text-xs font-medium uppercase tracking-wider hover:bg-blue-700 transition">
+            <i data-lucide="facebook" class="w-4 h-4"></i>
+            See More Reviews on Facebook
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacts" class="relative py-16 px-4 bg-dark overflow-hidden">
+      <!-- Background Image -->
+      <div class="absolute inset-0 z-0 opacity-80">
+        <img
+          src="img/contacts-img.jpg"
+          alt="contact-section-background"
+          class="w-full h-full object-cover" />
+      </div>
+      <div class="absolute inset-0 bg-gradient-to-b from-dark via-dark/95 to-dark z-0"></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 gap-12 max-w-[1280px] mx-auto">
+          <!-- Contact Info -->
+          <div class="reveal contant-info_container">
+            <div class="flex flex-col sm:flex-row gap-8 mb-8">
+              <div class="accent-line-1 pl-6">
+                <h3 class="text-lg font-montserrat font-bold text-white mb-1">Address</h3>
+                <p class="text-xs text-gray-400">
+                  21146 Ventura Blvd suite 3<br />
+                  Woodland Hills, CA 91364
+                </p>
+              </div>
+              <div class="flex-1">
+                <div class="accent-line pl-6 pb-1 mb-4">
+                  <h3 class="text-lg font-montserrat font-bold text-white">Contacts</h3>
+                  <p class="text-xs text-gray-400">(424) 230-6042<br />info@laautostore.com</p>
+                </div>
+                <button
+                  class="bg-primary text-white px-6 py-2 text-xs font-medium uppercase tracking-wider hover:bg-primary-hover transition mt-2">
+                  Write to Us
+                </button>
+              </div>
+            </div>
+
+            <!-- Team Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <!-- Team Member 1 -->
+              <div class="team-card bg-dark-secondary border border-gray-800 overflow-hidden">
+                <div class="flex">
+                  <div class="p-4 flex-1">
+                    <h4 class="text-sm font-medium text-white">Levon</h4>
+                    <p class="text-xs text-gray-500 mb-3">Chief Executive Officer</p>
+                    <div class="space-y-1">
+                      <div class="flex items-center gap-2 text-xs text-gray-400">
+                        <i data-lucide="phone" class="w-3 h-3 text-primary"></i>
+                        <span>(424) 230-6042</span>
+                      </div>
+                      <div class="flex items-center gap-2 text-xs text-gray-400">
+                        <i data-lucide="mail" class="w-3 h-3 text-primary"></i>
+                        <span>levon@laautostore.com</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="w-24 h-24 relative">
+                    <img
+                      src="img/avatarCEO-img.png"
+                      alt="Levon"
+                      class="w-full h-full object-cover" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Team Member 2 -->
+              <div class="team-card bg-dark-secondary border border-gray-800 overflow-hidden">
+                <div class="flex">
+                  <div class="p-4 flex-1">
+                    <h4 class="text-sm font-medium text-white">Nikita</h4>
+                    <p class="text-xs text-gray-500 mb-3">Sales Associate</p>
+                    <div class="space-y-1">
+                      <div class="flex items-center gap-2 text-xs text-gray-400">
+                        <i data-lucide="phone" class="w-3 h-3 text-primary"></i>
+                        <span>(424) 230-6042</span>
+                      </div>
+                      <div class="flex items-center gap-2 text-xs text-gray-400">
+                        <i data-lucide="mail" class="w-3 h-3 text-primary"></i>
+                        <span>nikita@laautostore.com</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="w-24 h-24 relative">
+                    <img
+                      src="img/avatarCEO-img.png"
+                      alt="Nikita"
+                      class="w-full h-full object-cover" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Google Maps Placeholder -->
+          <div>
+            <div
+              class="group reveal delay-200 relative w-[28rem] min-h-[400px] border border-gray-800 rounded-lg">
+              <!-- Google Map -->
+              <iframe
+                src="https://www.google.com/maps?q=LA+AUTOSTORE,+21146+Ventura+Blvd+Suite+3,+Woodland+Hills,+CA+91364,+United+States&output=embed"
+                class="absolute inset-0 w-full h-full"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+              <!-- Dark overlay -->
+              <div
+                class="absolute inset-0 bg-black/40 pointer-events-none transition-opacity duration-300 group-hover:opacity-0"></div>
+            </div>
+            <!-- Button -->
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=LA+AUTOSTORE,+21146+Ventura+Blvd+Suite+3,+Woodland+Hills,+CA+91364"
+              target="_blank"
+              class="mt-4 bg-primary text-white px-6 py-2 text-xs uppercase tracking-wider hover:bg-primary-hover transition inline-flex items-center gap-2 rounded">
+              <span>Get Directions</span> <i data-lucide="arrow-right" class="w-3 h-3"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark border-t border-gray-800 py-8 px-4 footer_main">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+          <!-- Logo -->
+          <div class="flex-shrink-0 flex items-center logo_container">
+            <a href="/index.html" class="flex items-baseline">
+              <img src="/img/logo_autostore.png" alt="logo" class="h-8 w-auto" />
+            </a>
+          </div>
+
+          <!-- Nav -->
+          <div class="flex gap-6 text-xs text-gray-300 uppercase tracking-wider">
+            <a href="stock.html" class="hover:text-[var(--primary-hover)] transition">Stock</a>
+            <a href="services.html" class="hover:text-[var(--primary-hover)] transition">
+              Services
+            </a>
+            <a href="advantages.html" class="hover:text-[var(--primary-hover)] transition">
+              Advantages
+            </a>
+            <a href="aboutUs.html" class="hover:text-[var(--primary-hover)] transition">About us</a>
+            <a href="#contacts" class="hover:text-[var(--primary-hover)] transition">Contacts</a>
+            <a href="privacy.html" class="hover:text-[var(--primary-hover)] transition">
+              Privacy Policy
+            </a>
+            <a href="terms.html" class="hover:text-[var(--primary-hover)] transition">
+              Terms of Service
+            </a>
+          </div>
+
+          <!-- Social -->
+          <div class="flex gap-4">
+            <a
+              href="#"
+              class="w-8 h-8 border border-gray-700 flex items-center justify-center text-gray-400 hover:text-white hover:border-primary hover:bg-primary transition rounded-full">
+              <i data-lucide="facebook" class="w-4 h-4"></i>
+            </a>
+            <a
+              href="#"
+              class="w-8 h-8 border border-gray-700 flex items-center justify-center text-gray-400 hover:text-white hover:border-primary hover:bg-primary transition rounded-full">
+              <i data-lucide="instagram" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-800 mt-8 pt-6 text-center">
+          <p class="text-xs text-gray-500">© 2026 LA Autostore. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
