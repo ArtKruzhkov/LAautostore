@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LA Autostore - About Us</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest" defer></script>
-    <script src="script.js" defer></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
       rel="stylesheet" />
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="js/main.js" defer></script>
   </head>
   <body class="bg-white text-white overflow-x-hidden">
     <!-- Navigation -->
@@ -48,9 +48,9 @@
             <nav
               class="hidden md:flex justify-center items-center gap-8 header-bottom__bar_container">
               <a
-                href="stock.html"
+                href="lease-offers.html"
                 class="text-base font-medium tracking-wide text-gray-300 hover:text-[var(--primary-hover)] transition uppercase"
-                >Stock
+                >Lease Offers
               </a>
               <a
                 href="services.html"
@@ -91,9 +91,9 @@
       <div id="mobile-menu" class="hidden md:hidden bg-dark-secondary border-t border-gray-800">
         <div class="px-4 pt-2 pb-4 space-y-1">
           <a
-            href="#stock"
+            href="lease-offers.html"
             class="block px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800"
-            >Stock</a
+            >Lease Offers</a
           >
           <a
             href="#advantages"
@@ -151,10 +151,9 @@
 
         <div class="space-y-6 text-gray-300 leading-relaxed text-sm md:text-base text-left">
           <p>
-            <strong>LA Autostore</strong> is an independent distributor specializing in top models
-            of reliable and well-known automotive brands. Our goal is to provide customers with
-            high-quality vehicles that combine modern technology, comfort, and long-term
-            reliability.
+            <strong>LA Autostore</strong> is a company focused on helping clients obtain vehicles
+            through flexible leasing solutions. Our goal is to make the process of getting a car
+            simple, transparent, and convenient for every customer.
           </p>
 
           <p>
@@ -165,7 +164,7 @@
 
           <p>
             We work directly with private clients, offering a professional and transparent car
-            buying experience. Our team carefully selects vehicles that meet high standards of
+            leasing experience. Our team carefully selects vehicles that meet high standards of
             quality, performance, and reliability.
           </p>
 
@@ -177,12 +176,12 @@
 
           <p>
             Our mission is simple — to help every client find the perfect car while providing honest
-            advice, professional support, and an enjoyable purchasing experience.
+            advice, professional support, and an enjoyable experience.
           </p>
         </div>
 
         <div class="mt-10 mb-14">
-          <a href="#" class="btn-primary"> View Our Inventory </a>
+          <a href="#" class="btn-primary">View offers</a>
         </div>
       </div>
     </section>
@@ -469,7 +468,9 @@
 
           <!-- Nav -->
           <div class="flex gap-6 text-xs text-gray-300 uppercase tracking-wider">
-            <a href="stock.html" class="hover:text-[var(--primary-hover)] transition">Stock</a>
+            <a href="lease-offers.html" class="hover:text-[var(--primary-hover)] transition"
+              >Lease Offers</a
+            >
             <a href="services.html" class="hover:text-[var(--primary-hover)] transition">
               Services
             </a>

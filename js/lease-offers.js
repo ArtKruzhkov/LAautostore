@@ -1,0 +1,122 @@
+import { cars } from '../data/data.js';
+
+function renderCatalog() {
+  const grid = document.getElementById('catalog-grid');
+
+  if (!grid) return;
+
+  grid.innerHTML = '';
+
+  cars.forEach((car) => {
+    const card = document.createElement('a');
+    card.href = `item.html?id=${car.id}`;
+    card.className = 'block catalog-item';
+
+    card.innerHTML = `
+      <div class="car-card bg-dark-secondary overflow-hidden group cursor-pointer">
+        
+        <div class="car-image relative overflow-hidden aspect-[4/3]">
+          <img src="${car.images[0]}" class="w-full h-full object-cover" />
+        </div>
+
+        <div class="p-4 border border-gray-800 border-t-0">
+
+          <div class="flex justify-between items-start mb-2">
+
+            <div>
+              <h4 class="text-sm font-medium text-white">
+                ${car.brand} ${car.model}
+              </h4>
+
+              <p class="text-xs text-gray-500">
+                ${car.trim}
+              </p>
+            </div>
+
+            <span class="text-primary font-montserrat font-bold">
+              $${car.price.toLocaleString()}
+              <span class="text-xs text-gray-400">/ month</span>
+            </span>
+
+          </div>
+
+          <div class="flex items-center gap-3 text-xs text-gray-400 mt-3">
+            <span>${car.year}</span>
+
+            <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
+
+            <span>${car.mileage.toLocaleString()} mi</span>
+          </div>
+
+        </div>
+
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function initCatalogPagination() {
+  const items = document.querySelectorAll('.catalog-item');
+  const pagination = document.getElementById('pagination');
+
+  if (!items.length) return;
+
+  const perPage = 9;
+  const pages = Math.ceil(items.length / perPage);
+  let currentPage = 1;
+
+  function showPage(page, scroll = true) {
+    currentPage = page;
+
+    items.forEach((item, index) => {
+      item.style.display =
+        index >= (page - 1) * perPage && index < page * perPage ? 'block' : 'none';
+    });
+
+    renderPagination();
+
+    if (!scroll) return;
+
+    const catalog = document.getElementById('catalog-content_section');
+
+    if (catalog) {
+      const y = catalog.getBoundingClientRect().top + window.scrollY - 130;
+
+      window.scrollTo({
+        top: y,
+        behavior: 'smooth',
+      });
+    }
+  }
+
+  function renderPagination() {
+    pagination.innerHTML = '';
+
+    for (let i = 1; i <= pages; i++) {
+      const btn = document.createElement('button');
+
+      btn.innerText = i;
+
+      btn.className =
+        'px-4 py-2 text-xs text-gray-400 border border-gray-300 hover:bg-red-500 hover:text-white transition';
+
+      if (i === currentPage) {
+        btn.classList.remove('text-gray-400');
+        btn.classList.remove('border-gray-300');
+        btn.classList.add('bg-red-500', 'text-white', 'border-primary');
+      }
+
+      btn.addEventListener('click', () => showPage(i));
+
+      pagination.appendChild(btn);
+    }
+  }
+
+  showPage(1, false);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderCatalog();
+  initCatalogPagination();
+});

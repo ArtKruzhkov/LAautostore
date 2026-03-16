@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LA Autostore - Stock</title>
+    <title>LA Autostore - Lease Offers</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
       rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest" defer></script>
-    <script src="script.js" defer></script>
-    <script src="stock.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script type="module" src="js/lease-offers.js"></script>
   </head>
   <body class="bg-white text-white overflow-x-hidden">
     <!-- Navigation -->
@@ -20,8 +20,8 @@
         <div class="flex justify-between items-center">
           <!-- Logo -->
           <div class="flex-shrink-0 flex items-center logo_container">
-            <a href="/index.html" class="flex items-baseline">
-              <img src="/img/logo_autostore.png" alt="logo" class="h-8 w-auto" />
+            <a href="index.html" class="flex items-baseline">
+              <img src="img/logo_autostore.png" alt="logo" class="h-8 w-auto" />
             </a>
           </div>
 
@@ -49,9 +49,9 @@
             <nav
               class="hidden md:flex justify-center items-center gap-8 header-bottom__bar_container">
               <a
-                href="stock.html"
+                href="lease-offers.html"
                 class="text-base font-medium tracking-wide text-gray-300 hover:text-[var(--primary-hover)] transition uppercase"
-                >Stock
+                >Lease Offers
               </a>
               <a
                 href="services.html"
@@ -92,9 +92,9 @@
       <div id="mobile-menu" class="hidden md:hidden bg-dark-secondary border-t border-gray-800">
         <div class="px-4 pt-2 pb-4 space-y-1">
           <a
-            href="#stock"
+            href="lease-offers.html"
             class="block px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800"
-            >Stock</a
+            >Lease Offers</a
           >
           <a
             href="#advantages"
@@ -119,12 +119,12 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="bg-dark text-white" id="stock">
+    <section class="bg-dark text-white" id="lease">
       <!-- IMAGE BLOCK -->
-      <div class="relative h-[53vh] min-h-[500px] overflow-hidden stock-image_container">
+      <div class="relative h-[53vh] min-h-[500px] overflow-hidden">
         <img
-          src="img/stock1.jpg"
-          alt="stock-img"
+          src="img/lease-img.jpg"
+          alt="lease-img"
           class="absolute inset-0 w-full h-full object-cover object-[center_86%]" />
 
         <!-- Dark overlay -->
@@ -136,11 +136,11 @@
           <div class="text-xs text-gray-400 mb-3">
             <a href="index.html" class="hover:text-[var(--primary-hover)] transition">Home</a>
             <span class="mx-2 text-primary">/</span>
-            <span class="text-white">Stock</span>
+            <span class="text-white">Lease Offers</span>
           </div>
 
           <h1 class="text-5xl md:text-5xl font-montserrat tracking-wide font-bold">
-            <span class="inline-block">Stock</span>
+            <span class="inline-block">Lease Offers</span>
           </h1>
           <div class="w-16 h-[2px] bg-primary mt-4"></div>
         </div>
@@ -210,8 +210,8 @@
         <div class="max-w-7xl mx-auto">
           <!-- Header -->
           <div class="mb-10 text-center">
-            <h3 class="text-4xl font-montserrat font-bold text-black mb-2">Vehicle Catalog</h3>
-            <p class="text-xs text-gray-400">Browse our available vehicles</p>
+            <h3 class="text-4xl font-montserrat font-bold text-black mb-2">Featured Lease Deals</h3>
+            <p class="text-xs text-gray-400">Discover luxury vehicles available for leasing.</p>
           </div>
 
           <!-- Catalog Controls -->
@@ -240,10 +240,9 @@
 
           <!-- Car Grid -->
           <div id="catalog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Car Card -->
-            <a href="item.html?id=1" class="block">
+            <!-- <a href="item.html?id=1" class="block catalog-item">
               <div
-                class="car-card bg-dark-secondary overflow-hidden group cursor-pointer catalog-item">
+                class="car-card bg-dark-secondary overflow-hidden group cursor-pointer">
                 <div class="car-image relative overflow-hidden aspect-[4/3]">
                   <img src="img/offers/Car.webp" class="w-full h-full object-cover" />
                 </div>
@@ -264,371 +263,7 @@
                   </div>
                 </div>
               </div>
-            </a>
-
-            <!-- Car Card -->
-            <a href="item.html?id=1" class="block">
-              <div
-                class="car-card bg-dark-secondary overflow-hidden group cursor-pointer catalog-item">
-                <div class="car-image relative overflow-hidden aspect-[4/3]">
-                  <img src="img/offers/Car.webp" class="w-full h-full object-cover" />
-                </div>
-
-                <div class="p-4 border border-gray-800 border-t-0">
-                  <div class="flex justify-between items-start mb-2">
-                    <div>
-                      <h4 class="text-sm font-medium text-white">Audi Q8 e-tron</h4>
-                      <p class="text-xs text-gray-500">Sportback 55 quattro</p>
-                    </div>
-                    <span class="text-primary font-montserrat font-bold">$82,000</span>
-                  </div>
-
-                  <div class="flex items-center gap-3 text-xs text-gray-400 mt-3">
-                    <span>2023</span>
-                    <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
-                    <span>34,500 km</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-
-            <!-- Car Card -->
-            <a href="item.html?id=1" class="block">
-              <div
-                class="car-card bg-dark-secondary overflow-hidden group cursor-pointer catalog-item">
-                <div class="car-image relative overflow-hidden aspect-[4/3]">
-                  <img src="img/offers/Car.webp" class="w-full h-full object-cover" />
-                </div>
-
-                <div class="p-4 border border-gray-800 border-t-0">
-                  <div class="flex justify-between items-start mb-2">
-                    <div>
-                      <h4 class="text-sm font-medium text-white">Audi Q8 e-tron</h4>
-                      <p class="text-xs text-gray-500">Sportback 55 quattro</p>
-                    </div>
-                    <span class="text-primary font-montserrat font-bold">$82,000</span>
-                  </div>
-
-                  <div class="flex items-center gap-3 text-xs text-gray-400 mt-3">
-                    <span>2023</span>
-                    <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
-                    <span>34,500 km</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-
-            <!-- Car Card -->
-            <a href="item.html?id=1" class="block">
-              <div
-                class="car-card bg-dark-secondary overflow-hidden group cursor-pointer catalog-item">
-                <div class="car-image relative overflow-hidden aspect-[4/3]">
-                  <img src="img/offers/Car.webp" class="w-full h-full object-cover" />
-                </div>
-
-                <div class="p-4 border border-gray-800 border-t-0">
-                  <div class="flex justify-between items-start mb-2">
-                    <div>
-                      <h4 class="text-sm font-medium text-white">Audi Q8 e-tron</h4>
-                      <p class="text-xs text-gray-500">Sportback 55 quattro</p>
-                    </div>
-                    <span class="text-primary font-montserrat font-bold">$82,000</span>
-                  </div>
-
-                  <div class="flex items-center gap-3 text-xs text-gray-400 mt-3">
-                    <span>2023</span>
-                    <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
-                    <span>34,500 km</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-
-            <!-- Car Card -->
-            <a href="item.html?id=1" class="block">
-              <div
-                class="car-card bg-dark-secondary overflow-hidden group cursor-pointer catalog-item">
-                <div class="car-image relative overflow-hidden aspect-[4/3]">
-                  <img src="img/offers/Car.webp" class="w-full h-full object-cover" />
-                </div>
-
-                <div class="p-4 border border-gray-800 border-t-0">
-                  <div class="flex justify-between items-start mb-2">
-                    <div>
-                      <h4 class="text-sm font-medium text-white">Audi Q8 e-tron</h4>
-                      <p class="text-xs text-gray-500">Sportback 55 quattro</p>
-                    </div>
-                    <span class="text-primary font-montserrat font-bold">$82,000</span>
-                  </div>
-
-                  <div class="flex items-center gap-3 text-xs text-gray-400 mt-3">
-                    <span>2023</span>
-                    <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
-                    <span>34,500 km</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-
-            <!-- Car Card -->
-            <a href="item.html?id=1" class="block">
-              <div
-                class="car-card bg-dark-secondary overflow-hidden group cursor-pointer catalog-item">
-                <div class="car-image relative overflow-hidden aspect-[4/3]">
-                  <img src="img/offers/Car.webp" class="w-full h-full object-cover" />
-                </div>
-
-                <div class="p-4 border border-gray-800 border-t-0">
-                  <div class="flex justify-between items-start mb-2">
-                    <div>
-                      <h4 class="text-sm font-medium text-white">Audi Q8 e-tron</h4>
-                      <p class="text-xs text-gray-500">Sportback 55 quattro</p>
-                    </div>
-                    <span class="text-primary font-montserrat font-bold">$82,000</span>
-                  </div>
-
-                  <div class="flex items-center gap-3 text-xs text-gray-400 mt-3">
-                    <span>2023</span>
-                    <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
-                    <span>34,500 km</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-
-            <!-- Car Card -->
-            <a href="item.html?id=1" class="block">
-              <div
-                class="car-card bg-dark-secondary overflow-hidden group cursor-pointer catalog-item">
-                <div class="car-image relative overflow-hidden aspect-[4/3]">
-                  <img src="img/offers/Car.webp" class="w-full h-full object-cover" />
-                </div>
-
-                <div class="p-4 border border-gray-800 border-t-0">
-                  <div class="flex justify-between items-start mb-2">
-                    <div>
-                      <h4 class="text-sm font-medium text-white">Audi Q8 e-tron</h4>
-                      <p class="text-xs text-gray-500">Sportback 55 quattro</p>
-                    </div>
-                    <span class="text-primary font-montserrat font-bold">$82,000</span>
-                  </div>
-
-                  <div class="flex items-center gap-3 text-xs text-gray-400 mt-3">
-                    <span>2023</span>
-                    <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
-                    <span>34,500 km</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-
-            <!-- Car Card -->
-            <a href="item.html?id=1" class="block">
-              <div
-                class="car-card bg-dark-secondary overflow-hidden group cursor-pointer catalog-item">
-                <div class="car-image relative overflow-hidden aspect-[4/3]">
-                  <img src="img/offers/Car.webp" class="w-full h-full object-cover" />
-                </div>
-
-                <div class="p-4 border border-gray-800 border-t-0">
-                  <div class="flex justify-between items-start mb-2">
-                    <div>
-                      <h4 class="text-sm font-medium text-white">Audi Q8 e-tron</h4>
-                      <p class="text-xs text-gray-500">Sportback 55 quattro</p>
-                    </div>
-                    <span class="text-primary font-montserrat font-bold">$82,000</span>
-                  </div>
-
-                  <div class="flex items-center gap-3 text-xs text-gray-400 mt-3">
-                    <span>2023</span>
-                    <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
-                    <span>34,500 km</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-
-            <!-- Car Card -->
-            <a href="item.html?id=1" class="block">
-              <div
-                class="car-card bg-dark-secondary overflow-hidden group cursor-pointer catalog-item">
-                <div class="car-image relative overflow-hidden aspect-[4/3]">
-                  <img src="img/offers/Car.webp" class="w-full h-full object-cover" />
-                </div>
-
-                <div class="p-4 border border-gray-800 border-t-0">
-                  <div class="flex justify-between items-start mb-2">
-                    <div>
-                      <h4 class="text-sm font-medium text-white">Audi Q8 e-tron</h4>
-                      <p class="text-xs text-gray-500">Sportback 55 quattro</p>
-                    </div>
-                    <span class="text-primary font-montserrat font-bold">$82,000</span>
-                  </div>
-
-                  <div class="flex items-center gap-3 text-xs text-gray-400 mt-3">
-                    <span>2023</span>
-                    <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
-                    <span>34,500 km</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-
-            <!-- Car Card -->
-            <a href="item.html?id=1" class="block">
-              <div
-                class="car-card bg-dark-secondary overflow-hidden group cursor-pointer catalog-item">
-                <div class="car-image relative overflow-hidden aspect-[4/3]">
-                  <img src="img/offers/Car.webp" class="w-full h-full object-cover" />
-                </div>
-
-                <div class="p-4 border border-gray-800 border-t-0">
-                  <div class="flex justify-between items-start mb-2">
-                    <div>
-                      <h4 class="text-sm font-medium text-white">Audi Q8 e-tron</h4>
-                      <p class="text-xs text-gray-500">Sportback 55 quattro</p>
-                    </div>
-                    <span class="text-primary font-montserrat font-bold">$82,000</span>
-                  </div>
-
-                  <div class="flex items-center gap-3 text-xs text-gray-400 mt-3">
-                    <span>2023</span>
-                    <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
-                    <span>34,500 km</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-
-            <!-- Car Card -->
-            <a href="item.html?id=1" class="block">
-              <div
-                class="car-card bg-dark-secondary overflow-hidden group cursor-pointer catalog-item">
-                <div class="car-image relative overflow-hidden aspect-[4/3]">
-                  <img src="img/offers/Car.webp" class="w-full h-full object-cover" />
-                </div>
-
-                <div class="p-4 border border-gray-800 border-t-0">
-                  <div class="flex justify-between items-start mb-2">
-                    <div>
-                      <h4 class="text-sm font-medium text-white">Audi Q8 e-tron</h4>
-                      <p class="text-xs text-gray-500">Sportback 55 quattro</p>
-                    </div>
-                    <span class="text-primary font-montserrat font-bold">$82,000</span>
-                  </div>
-
-                  <div class="flex items-center gap-3 text-xs text-gray-400 mt-3">
-                    <span>2023</span>
-                    <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
-                    <span>34,500 km</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-
-            <!-- Car Card -->
-            <a href="item.html?id=1" class="block">
-              <div
-                class="car-card bg-dark-secondary overflow-hidden group cursor-pointer catalog-item">
-                <div class="car-image relative overflow-hidden aspect-[4/3]">
-                  <img src="img/offers/Car.webp" class="w-full h-full object-cover" />
-                </div>
-
-                <div class="p-4 border border-gray-800 border-t-0">
-                  <div class="flex justify-between items-start mb-2">
-                    <div>
-                      <h4 class="text-sm font-medium text-white">Audi Q8 e-tron</h4>
-                      <p class="text-xs text-gray-500">Sportback 55 quattro</p>
-                    </div>
-                    <span class="text-primary font-montserrat font-bold">$82,000</span>
-                  </div>
-
-                  <div class="flex items-center gap-3 text-xs text-gray-400 mt-3">
-                    <span>2023</span>
-                    <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
-                    <span>34,500 km</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-
-            <!-- Car Card -->
-            <a href="item.html?id=1" class="block">
-              <div
-                class="car-card bg-dark-secondary overflow-hidden group cursor-pointer catalog-item">
-                <div class="car-image relative overflow-hidden aspect-[4/3]">
-                  <img src="img/offers/Car.webp" class="w-full h-full object-cover" />
-                </div>
-
-                <div class="p-4 border border-gray-800 border-t-0">
-                  <div class="flex justify-between items-start mb-2">
-                    <div>
-                      <h4 class="text-sm font-medium text-white">Audi Q8 e-tron</h4>
-                      <p class="text-xs text-gray-500">Sportback 55 quattro</p>
-                    </div>
-                    <span class="text-primary font-montserrat font-bold">$82,000</span>
-                  </div>
-
-                  <div class="flex items-center gap-3 text-xs text-gray-400 mt-3">
-                    <span>2023</span>
-                    <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
-                    <span>34,500 km</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-
-            <!-- Car Card -->
-            <a href="item.html?id=1" class="block">
-              <div
-                class="car-card bg-dark-secondary overflow-hidden group cursor-pointer catalog-item">
-                <div class="car-image relative overflow-hidden aspect-[4/3]">
-                  <img src="img/offers/Car.webp" class="w-full h-full object-cover" />
-                </div>
-
-                <div class="p-4 border border-gray-800 border-t-0">
-                  <div class="flex justify-between items-start mb-2">
-                    <div>
-                      <h4 class="text-sm font-medium text-white">Audi Q8 e-tron</h4>
-                      <p class="text-xs text-gray-500">Sportback 55 quattro</p>
-                    </div>
-                    <span class="text-primary font-montserrat font-bold">$82,000</span>
-                  </div>
-
-                  <div class="flex items-center gap-3 text-xs text-gray-400 mt-3">
-                    <span>2023</span>
-                    <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
-                    <span>34,500 km</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-
-            <!-- Car Card -->
-            <a href="item.html?id=1" class="block">
-              <div
-                class="car-card bg-dark-secondary overflow-hidden group cursor-pointer catalog-item">
-                <div class="car-image relative overflow-hidden aspect-[4/3]">
-                  <img src="img/offers/Car.webp" class="w-full h-full object-cover" />
-                </div>
-
-                <div class="p-4 border border-gray-800 border-t-0">
-                  <div class="flex justify-between items-start mb-2">
-                    <div>
-                      <h4 class="text-sm font-medium text-white">Audi Q8 e-tron</h4>
-                      <p class="text-xs text-gray-500">Sportback 55 quattro</p>
-                    </div>
-                    <span class="text-primary font-montserrat font-bold">$82,000</span>
-                  </div>
-
-                  <div class="flex items-center gap-3 text-xs text-gray-400 mt-3">
-                    <span>2023</span>
-                    <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
-                    <span>34,500 km</span>
-                  </div>
-                </div>
-              </div>
-            </a>
+            </a> -->
           </div>
           <!-- Pagination -->
           <div id="pagination" class="flex justify-center gap-2 mt-10"></div>
@@ -767,7 +402,9 @@
 
           <!-- Nav -->
           <div class="flex gap-6 text-xs text-gray-300 uppercase tracking-wider">
-            <a href="stock.html" class="hover:text-[var(--primary-hover)] transition">Stock</a>
+            <a href="lease-offers.html" class="hover:text-[var(--primary-hover)] transition">
+              Lease Offers
+            </a>
             <a href="services.html" class="hover:text-[var(--primary-hover)] transition">
               Services
             </a>

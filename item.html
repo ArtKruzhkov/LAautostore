@@ -7,10 +7,11 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
       rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest" defer></script>
-    <script src="script.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script type="module" src="js/item.js"></script>
   </head>
   <body class="bg-white text-white overflow-x-hidden">
     <!-- Navigation -->
@@ -48,9 +49,9 @@
             <nav
               class="hidden md:flex justify-center items-center gap-8 header-bottom__bar_container">
               <a
-                href="stock.html"
+                href="lease-offers.html"
                 class="text-base font-medium tracking-wide text-gray-300 hover:text-[var(--primary-hover)] transition uppercase"
-                >Stock
+                >Lease Offers
               </a>
               <a
                 href="services.html"
@@ -91,9 +92,9 @@
       <div id="mobile-menu" class="hidden md:hidden bg-dark-secondary border-t border-gray-800">
         <div class="px-4 pt-2 pb-4 space-y-1">
           <a
-            href="#stock"
+            href="lease-offers.html"
             class="block px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800"
-            >Stock</a
+            >Lease Offers</a
           >
           <a
             href="#advantages"
@@ -124,16 +125,23 @@
         <div class="text-xs text-gray-400 mb-3">
           <a href="index.html" class="hover:text-[var(--primary-hover)] transition">Home</a>
           <span class="mx-2 text-primary">/</span>
+          <a href="lease-offers.html" class="hover:text-[var(--primary-hover)] transition">
+            Lease Offers
+          </a>
+          <span class="mx-2 text-primary">/</span>
           <span class="text-white">Car Details</span>
         </div>
 
         <!-- Title + Price -->
         <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
-          <h1 class="text-3xl md:text-4xl font-montserrat font-bold">
-            Audi Q8 e-tron
+          <h1 id="car-title" class="text-3xl md:text-4xl font-montserrat font-bold">
+            Car Name
             <div class="w-16 h-[2px] bg-primary mt-4"></div>
           </h1>
-          <div class="text-2xl font-montserrat font-bold text-primary mt-2 md:mt-0">$53,000</div>
+          <div id="car-price" class="text-2xl font-montserrat font-bold text-primary mt-2 md:mt-0">
+            $0
+            <span class="text-xs text-gray-400"> / month</span>
+          </div>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
@@ -143,32 +151,27 @@
             <div class="grid grid-cols-2 gap-4 text-sm mb-8">
               <div class="flex items-center gap-2">
                 <i data-lucide="calendar" class="w-4 h-4 text-primary"></i>
-                <span>2023</span>
+                <span id="car-year">2000</span>
               </div>
 
               <div class="flex items-center gap-2">
                 <i data-lucide="gauge" class="w-4 h-4 text-primary"></i>
-                <span>54,000 km</span>
+                <span id="car-mileage">0 mi</span>
               </div>
 
               <div class="flex items-center gap-2">
                 <i data-lucide="settings" class="w-4 h-4 text-primary"></i>
-                <span>Automatic</span>
+                <span id="car-transmission"></span>
               </div>
 
               <div class="flex items-center gap-2">
                 <i data-lucide="fuel" class="w-4 h-4 text-primary"></i>
-                <span>Electric</span>
-              </div>
-
-              <div class="flex items-center gap-2">
-                <i data-lucide="users" class="w-4 h-4 text-primary"></i>
-                <span>5 seats</span>
+                <span id="car-fuel"></span>
               </div>
 
               <div class="flex items-center gap-2">
                 <i data-lucide="car" class="w-4 h-4 text-primary"></i>
-                <span>SUV</span>
+                <span id="car-body"></span>
               </div>
             </div>
 
@@ -179,7 +182,7 @@
               </div>
 
               <div class="text-sm text-gray-300 leading-relaxed">
-                <p class="mb-4">
+                <p id="car-description" class="mb-4">
                   The Audi Q8 e-tron is a premium electric SUV combining advanced technology, luxury
                   interior, and powerful performance.
                 </p>
@@ -187,23 +190,23 @@
                 <ul class="space-y-2">
                   <li class="flex items-center gap-2">
                     <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
-                    Power: 408 hp
+                    Power: <span id="car-power"></span>
                   </li>
                   <li class="flex items-center gap-2">
                     <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
-                    Range: up to 582 km
+                    Range: <span id="car-range"></span>
                   </li>
                   <li class="flex items-center gap-2">
                     <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
-                    Interior: Black leather
+                    Interior: <span id="car-interior"></span>
                   </li>
                   <li class="flex items-center gap-2">
                     <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
-                    Color: Daytona Gray Pearl
+                    Color: <span id="car-color"></span>
                   </li>
                   <li class="flex items-center gap-2">
                     <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
-                    Emission standard: EURO 6
+                    Emission standard: <span id="car-emission"></span>
                   </li>
                 </ul>
               </div>
@@ -211,33 +214,19 @@
 
             <!-- CTA -->
             <div class="mt-8">
-              <button class="btn-primary px-8 py-3">Buy This Car</button>
+              <button class="btn-primary px-8 py-3">Lease This Car</button>
             </div>
           </div>
 
           <!-- Car Gallery -->
           <div>
             <div class="overflow-hidden rounded-lg mb-4">
-              <img
-                src="img/offers/audiQ8.webp"
-                alt="Audi Q8"
-                class="w-full h-[420px] object-cover" />
+              <img id="car-main-image" src="" alt="" class="w-full h-[420px] object-cover" />
             </div>
 
             <!-- Thumbnails -->
-            <div class="grid grid-cols-4 gap-3">
-              <img
-                src="img/offers/Car.webp"
-                class="cursor-pointer object-cover h-24 w-full rounded" />
-              <img
-                src="img/offers/Car2.jpg"
-                class="cursor-pointer object-cover h-24 w-full rounded" />
-              <img
-                src="img/offers/Car.webp"
-                class="cursor-pointer object-cover h-24 w-full rounded" />
-              <img
-                src="img/offers/Car2.jpg"
-                class="cursor-pointer object-cover h-24 w-full rounded" />
+            <div id="car-thumbnails" class="grid grid-cols-4 gap-3">
+              <!-- Thumbnails will be dynamically generated here -->
             </div>
           </div>
         </div>
@@ -600,7 +589,9 @@
 
           <!-- Nav -->
           <div class="flex gap-6 text-xs text-gray-300 uppercase tracking-wider">
-            <a href="stock.html" class="hover:text-[var(--primary-hover)] transition">Stock</a>
+            <a href="lease-offers.html" class="hover:text-[var(--primary-hover)] transition">
+              Lease Offers
+            </a>
             <a href="services.html" class="hover:text-[var(--primary-hover)] transition">
               Services
             </a>

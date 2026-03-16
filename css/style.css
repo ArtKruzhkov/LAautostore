@@ -756,12 +756,12 @@ input:focus-visible {
   z-index: 3;
 }
 
-#stock {
+#lease {
   position: relative;
   z-index: 1;
 }
 
-#stock::after {
+#lease::after {
   content: '';
   position: absolute;
   bottom: -48px;
@@ -772,7 +772,7 @@ input:focus-visible {
   clip-path: polygon(0 0, 100% 0, 100% 1px, 50% 100%, 0 1px);
 }
 
-.stock-image_container {
+/* .stock-image_container {
   position: relative;
   z-index: 1;
 }
@@ -790,7 +790,7 @@ input:focus-visible {
   clip-path: polygon(0 100%, 0 0, 50% calc(100% - 1px), 100% 0, 100% 100%, 50% 100%);
 
   z-index: 2;
-}
+} */
 
 #privacy_section {
   position: relative;
