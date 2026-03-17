@@ -1,13 +1,33 @@
 import { cars } from '../data/data.js';
 
-function renderCatalog() {
+function renderCatalog(list) {
   const grid = document.getElementById('catalog-grid');
+  const carsCount = document.getElementById('cars-count');
+  const vehicleWord = document.getElementById('vehicle-word');
 
   if (!grid) return;
 
   grid.innerHTML = '';
 
-  cars.forEach((car) => {
+  if (carsCount) {
+    carsCount.textContent = list.length;
+  }
+
+  if (vehicleWord) {
+    vehicleWord.textContent = list.length === 1 ? 'vehicle' : 'vehicles';
+  }
+
+  if (!list.length) {
+    grid.innerHTML = `
+    <div class="col-span-full text-center text-gray-400 py-20">
+      No vehicles found
+    </div>
+  `;
+    if (carsCount) carsCount.textContent = 0;
+    return;
+  }
+
+  list.forEach((car) => {
     const card = document.createElement('a');
     card.href = `item.html?id=${car.id}`;
     card.className = 'block catalog-item';
@@ -16,7 +36,7 @@ function renderCatalog() {
       <div class="car-card bg-dark-secondary overflow-hidden group cursor-pointer">
         
         <div class="car-image relative overflow-hidden aspect-[4/3]">
-          <img src="${car.images[0]}" class="w-full h-full object-cover" />
+          <img src="${car.images[0]}" alt="${car.brand} ${car.model}" class="w-full h-full object-cover" />
         </div>
 
         <div class="p-4 border border-gray-800 border-t-0">
@@ -116,7 +136,29 @@ function initCatalogPagination() {
   showPage(1, false);
 }
 
+function getSearchParams() {
+  const params = new URLSearchParams(window.location.search);
+  return {
+    brand: params.get('brand'),
+    model: params.get('model'),
+    year: params.get('year'),
+  };
+}
+
+function filterCars() {
+  const { brand, model, year } = getSearchParams();
+
+  return cars.filter((car) => {
+    if (brand && car.brand !== brand) return false;
+    if (model && car.model !== model) return false;
+    if (year && String(car.year) !== year) return false;
+
+    return true;
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-  renderCatalog();
+  const filteredCard = filterCars();
+  renderCatalog(filteredCard);
   initCatalogPagination();
 });

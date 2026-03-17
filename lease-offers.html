@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest" defer></script>
-    <script src="js/main.js" defer></script>
+    <script type="module" src="js/main.js"></script>
     <script type="module" src="js/lease-offers.js"></script>
   </head>
   <body class="bg-white text-white overflow-x-hidden">
@@ -21,7 +21,7 @@
           <!-- Logo -->
           <div class="flex-shrink-0 flex items-center logo_container">
             <a href="index.html" class="flex items-baseline">
-              <img src="img/logo_autostore.png" alt="logo" class="h-8 w-auto" />
+              <img src="img/logo_autostore.webp" alt="logo" class="h-8 w-auto" />
             </a>
           </div>
 
@@ -123,7 +123,7 @@
       <!-- IMAGE BLOCK -->
       <div class="relative h-[53vh] min-h-[500px] overflow-hidden">
         <img
-          src="img/lease-img.jpg"
+          src="img/lease-img.webp"
           alt="lease-img"
           class="absolute inset-0 w-full h-full object-cover object-[center_86%]" />
 
@@ -149,54 +149,35 @@
       <!-- Search Box -->
       <section class="search-section triangles-down w-full backdrop-blur-sm py-6 relative">
         <div class="max-w-7xl mx-auto px-4 md:px-6">
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div class="relative">
               <label class="block text-xs text-gray-400 mb-1 uppercase tracking-wider">Brand</label>
               <select
+                id="brand-select"
                 class="w-full bg-dark-secondary border border-gray-700 text-white px-4 py-2.5 text-sm focus:outline-none focus:border-primary transition">
-                <option>Select brand</option>
-                <option>Audi</option>
-                <option>BMW</option>
-                <option>Mercedes-Benz</option>
-                <option>Porsche</option>
-                <option>Tesla</option>
+                <option value="" selected>Select brand</option>
               </select>
             </div>
             <div class="relative">
               <label class="block text-xs text-gray-400 mb-1 uppercase tracking-wider">Model</label>
               <select
+                id="model-select"
                 class="w-full bg-dark-secondary border border-gray-700 text-white px-4 py-2.5 text-sm focus:outline-none focus:border-primary transition">
-                <option>Choose a model</option>
-                <option>RS Series</option>
-                <option>M Series</option>
-                <option>AMG</option>
+                <option value="" selected>Choose a model</option>
               </select>
             </div>
             <div class="relative">
               <label class="block text-xs text-gray-400 mb-1 uppercase tracking-wider">Year</label>
               <select
+                id="year-select"
                 class="w-full bg-dark-secondary border border-gray-700 text-white px-4 py-2.5 text-sm focus:outline-none focus:border-primary transition">
-                <option>Year of model</option>
-                <option>2024</option>
-                <option>2023</option>
-                <option>2022</option>
-                <option>2021</option>
+                <option value="" selected>Year of model</option>
               </select>
-            </div>
-            <div class="relative">
-              <label class="block text-xs text-gray-400 mb-1 uppercase tracking-wider">Price</label>
-              <div
-                class="flex items-center gap-2 bg-dark-secondary border border-gray-700 px-3 py-2">
-                <span class="text-xs text-gray-400">€</span>
-                <input
-                  type="text"
-                  value="10000 - 84350"
-                  class="bg-transparent text-white text-sm w-full focus:outline-none" />
-              </div>
             </div>
           </div>
           <div class="mt-6 flex justify-center">
             <button
+              id="search-cars-btn"
               class="bg-primary text-white px-8 py-3 text-sm font-medium uppercase tracking-wider hover:bg-primary-hover transition flex items-center gap-2">
               <i data-lucide="search" class="w-4 h-4"></i>
               Search Cars
@@ -211,7 +192,7 @@
           <!-- Header -->
           <div class="mb-10 text-center">
             <h3 class="text-4xl font-montserrat font-bold text-black mb-2">Featured Lease Deals</h3>
-            <p class="text-xs text-gray-400">Discover luxury vehicles available for leasing.</p>
+            <p class="text-xs text-gray-400">Discover vehicles available for leasing.</p>
           </div>
 
           <!-- Catalog Controls -->
@@ -219,7 +200,8 @@
             class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8 catalog-controls">
             <!-- Results count -->
             <div class="text-sm text-gray-500">
-              Showing <span class="font-semibold text-black">15</span> vehicles
+              Showing <span id="cars-count" class="font-semibold text-black">0</span>
+              <span id="vehicle-word">vehicles</span>
             </div>
 
             <!-- Sorting -->
@@ -276,7 +258,7 @@
       <!-- Background Image -->
       <div class="absolute inset-0 z-0 opacity-80">
         <img
-          src="img/contacts-img.jpg"
+          src="img/contacts-img.webp"
           alt="contact-section-background"
           class="w-full h-full object-cover" />
       </div>
@@ -395,8 +377,8 @@
         <div class="flex flex-col md:flex-row justify-between items-center gap-6">
           <!-- Logo -->
           <div class="flex-shrink-0 flex items-center logo_container">
-            <a href="/index.html" class="flex items-baseline">
-              <img src="/img/logo_autostore.png" alt="logo" class="h-8 w-auto" />
+            <a href="index.html" class="flex items-baseline">
+              <img src="img/logo_autostore.webp" alt="logo" class="h-8 w-auto" />
             </a>
           </div>
 

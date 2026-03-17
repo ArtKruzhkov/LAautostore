@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="css/style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest" defer></script>
-    <script src="js/main.js" defer></script>
+    <script type="module" src="js/main.js"></script>
+    <!-- <script src="js/main.js"></script> -->
   </head>
   <body class="bg-white text-white overflow-x-hidden">
     <!-- Navigation -->
@@ -19,8 +20,8 @@
         <div class="flex justify-between items-center">
           <!-- Logo -->
           <div class="flex-shrink-0 flex items-center logo_container">
-            <a href="/index.html" class="flex items-baseline">
-              <img src="/img/logo_autostore.png" alt="logo" class="h-8 w-auto" />
+            <a href="index.html" class="flex items-baseline">
+              <img src="img/logo_autostore.webp" alt="logo" class="h-8 w-auto" />
             </a>
           </div>
 
@@ -110,6 +111,11 @@
             >Lease Offers</a
           >
           <a
+            href="services.html"
+            class="block px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800"
+            >Services</a
+          >
+          <a
             href="#advantages"
             class="block px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800"
             >Advantages</a
@@ -136,7 +142,7 @@
       <!-- Background Image -->
       <div class="absolute inset-0 z-0">
         <img
-          src="/img/main-img.jpg"
+          src="img/main-img.webp"
           alt="background-image_la-autostore"
           class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-black/20"></div>
@@ -147,10 +153,10 @@
       <!-- Content -->
       <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mb-20">
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-light font-montserrat mb-4 text-white">
-          Only <span class="font-bold">performance</span> cars
+          Find your <span class="font-bold">perfect car</span>
         </h1>
         <p class="text-gray-300 text-lg mb-8 font-light">
-          Premium selection of luxury and sports vehicles
+          Professional leasing assistance and vehicle selection in Los Angeles
         </p>
       </div>
     </section>
@@ -158,53 +164,35 @@
     <!-- Search Box -->
     <section class="search-section triangles-down w-full backdrop-blur-sm py-6 relative">
       <div class="max-w-7xl mx-auto px-4 md:px-6">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div class="relative">
             <label class="block text-xs text-gray-400 mb-1 uppercase tracking-wider">Brand</label>
             <select
+              id="brand-select"
               class="w-full bg-dark-secondary border border-gray-700 text-white px-4 py-2.5 text-sm focus:outline-none focus:border-primary transition">
-              <option>Select brand</option>
-              <option>Audi</option>
-              <option>BMW</option>
-              <option>Mercedes-Benz</option>
-              <option>Porsche</option>
-              <option>Tesla</option>
+              <option value="" selected>Select brand</option>
             </select>
           </div>
           <div class="relative">
             <label class="block text-xs text-gray-400 mb-1 uppercase tracking-wider">Model</label>
             <select
+              id="model-select"
               class="w-full bg-dark-secondary border border-gray-700 text-white px-4 py-2.5 text-sm focus:outline-none focus:border-primary transition">
-              <option>Choose a model</option>
-              <option>RS Series</option>
-              <option>M Series</option>
-              <option>AMG</option>
+              <option value="" selected>Choose a model</option>
             </select>
           </div>
           <div class="relative">
             <label class="block text-xs text-gray-400 mb-1 uppercase tracking-wider">Year</label>
             <select
+              id="year-select"
               class="w-full bg-dark-secondary border border-gray-700 text-white px-4 py-2.5 text-sm focus:outline-none focus:border-primary transition">
-              <option>Year of model</option>
-              <option>2024</option>
-              <option>2023</option>
-              <option>2022</option>
-              <option>2021</option>
+              <option value="" selected>Year of model</option>
             </select>
-          </div>
-          <div class="relative">
-            <label class="block text-xs text-gray-400 mb-1 uppercase tracking-wider">Price</label>
-            <div class="flex items-center gap-2 bg-dark-secondary border border-gray-700 px-3 py-2">
-              <span class="text-xs text-gray-400">€</span>
-              <input
-                type="text"
-                value="10000 - 84350"
-                class="bg-transparent text-white text-sm w-full focus:outline-none" />
-            </div>
           </div>
         </div>
         <div class="mt-6 flex justify-center">
           <button
+            id="search-cars-btn"
             class="bg-primary text-white px-8 py-3 text-sm font-medium uppercase tracking-wider hover:bg-primary-hover transition flex items-center gap-2">
             <i data-lucide="search" class="w-4 h-4"></i>
             Search Cars
@@ -261,250 +249,66 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-16 px-4 bg-white text-center">
+    <section id="about" class="py-12 px-4 bg-white text-center">
       <div class="max-w-4xl mx-auto header_about_container">
-        <h2 class="text-3xl md:text-4xl font-montserrat font-light text-black mb-4">
-          <span class="font-bold">LA</span>autostore is an independent distributor<br />
-          specializing in <span class="font-light">top models of reliable brands.</span>
+        <h2 class="text-3xl md:text-4xl font-montserrat text-black mb-4">
+          <span class="font-bold">LA</span> autostore provides<br />
+          <span class="font-light">modern leasing solutions and vehicle sourcing.</span>
         </h2>
         <div class="w-12 h-0.5 bg-gray-600 mx-auto my-6"></div>
         <p class="text-gray-400 text-sm leading-relaxed mb-2">
-          Our key to success is to meet the needs of every customer.
+          We help our clients find the right car, arranging leasing options, and finding vehicles
+          based on their request.
         </p>
         <p class="text-gray-400 text-sm leading-relaxed mb-2">
-          Everyone is welcome for a coffee, advice or help.
+          From vehicle selection to leasing guidance — our team supports you throughout the entire
+          process.
         </p>
-        <p class="text-gray-500 text-xs italic mt-6">
-          "You come as a guest and you leave as our friend."
-        </p>
+        <p class="text-gray-500 text-xs italic mt-6">"Your next car starts here."</p>
       </div>
     </section>
 
     <!-- Latest Offers Section -->
-    <section id="stock" class="py-16 px-4 bg-white reveal">
+    <section id="last-offers" class="py-10 px-4 bg-white reveal">
       <div class="max-w-7xl mx-auto">
         <!-- Section Header -->
-        <div
-          class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
-          <div class="accent-line pl-6">
-            <h3 class="text-xl font-montserrat font-bold text-black">Latest offers</h3>
-            <p class="text-xs text-gray-400">Recently added vehicles</p>
+        <div class="flex flex-col md:flex-row justify-center items-start items-center mb-8 gap-4">
+          <div class="text-center">
+            <h3 class="text-4xl font-montserrat font-bold text-black mb-2">Latest offers</h3>
+            <p class="text-xs text-gray-400">Recently added vehicles.</p>
           </div>
 
           <!-- Filter Tabs -->
-          <div
+          <!-- <div
             class="flex flex-col sm:flex-row justify-between items-start sm:items-center filter_container">
-            <!-- Show All Button -->
+
             <button class="tab-btn active px-6 py-2 text-xs uppercase tracking-wider text-white">
               <span> Show All </span>
             </button>
 
-            <!-- Brand Dropdown -->
+
             <div class="relative w-full sm:w-64">
               <select
                 id="brand-filter"
                 class="w-full bg-white text-black border border-[#0f0f0f] px-4 py-2 text-xs uppercase tracking-wider focus:outline-none cursor-pointer">
-                <option value="all">Select Brand</option>
-                <option value="audi">Audi</option>
-                <option value="bmw">BMW</option>
-                <option value="volkswagen">Volkswagen</option>
-                <option value="ford">Ford</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="porsche">Porsche</option>
-                <option value="dodge">Dodge</option>
-                <option value="chevrolet">Chevrolet</option>
+                <option value="" selected>Select Brand</option>
               </select>
             </div>
-          </div>
+          </div> -->
         </div>
 
         <!-- Car Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="car-grid">
-          <!-- Car Card 1 -->
-          <a href="item.html?id=1" class="block">
-            <div class="car-card bg-dark-secondary overflow-hidden group cursor-pointer delay-100">
-              <div class="car-image relative overflow-hidden aspect-[4/3]">
-                <img
-                  src="img/offers/audiQ8.webp"
-                  alt="Audi Q8 e-tron"
-                  class="w-full h-full object-cover" />
-                <div class="absolute bottom-0 left-0 bg-primary px-3 py-1 text-xs font-medium">
-                  New Arrival
-                </div>
-                <div
-                  class="absolute top-0 right-0 m-3 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                  <i data-lucide="shield" class="w-4 h-4 text-white"></i>
-                </div>
-              </div>
-              <div class="p-4 border border-gray-800 border-t-0">
-                <div class="flex justify-between items-start mb-2">
-                  <div>
-                    <h4 class="text-sm font-medium text-white">Audi Q8 e-tron</h4>
-                    <p class="text-xs text-gray-500">Sportback 55 quattro</p>
-                  </div>
-                  <span class="text-primary font-montserrat font-bold">€82,000</span>
-                </div>
-                <div class="flex items-center gap-3 text-xs text-gray-400 mt-3">
-                  <span>2023</span>
-                  <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
-                  <span>34,500 km</span>
-                </div>
-              </div>
-            </div>
-          </a>
-
-          <!-- Car Card 2 -->
-          <a href="item.html?id=2" class="block">
-            <div class="car-card bg-dark-secondary overflow-hidden group cursor-pointer delay-200">
-              <div class="car-image relative overflow-hidden aspect-[4/3]">
-                <img src="img/offers/Car2.jpg" alt="Audi RS6" class="w-full h-full object-cover" />
-                <div class="absolute bottom-0 left-0 bg-primary px-3 py-1 text-xs font-medium">
-                  Top Deal
-                </div>
-                <div
-                  class="absolute top-0 right-0 m-3 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                  <i data-lucide="shield" class="w-4 h-4 text-white"></i>
-                </div>
-              </div>
-              <div class="p-4 border border-gray-800 border-t-0">
-                <div class="flex justify-between items-start mb-2">
-                  <div>
-                    <h4 class="text-sm font-medium text-white">Audi RS6</h4>
-                    <p class="text-xs text-gray-500">Avant 4.0 TFSI Quattro</p>
-                  </div>
-                  <span class="text-primary font-montserrat font-bold">€78,500</span>
-                </div>
-                <div class="flex items-center gap-3 text-xs text-gray-400 mt-3">
-                  <span>2021</span>
-                  <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
-                  <span>18,000 km</span>
-                </div>
-              </div>
-            </div>
-          </a>
-
-          <!-- Car Card 3 -->
-          <div class="car-card bg-dark-secondary overflow-hidden group cursor-pointer delay-300">
-            <div class="car-image relative overflow-hidden aspect-[4/3]">
-              <img
-                src="img/offers/Car.webp"
-                alt="Mercedes G63 AMG"
-                class="w-full h-full object-cover" />
-              <div class="absolute bottom-0 left-0 bg-primary px-3 py-1 text-xs font-medium">
-                Premium
-              </div>
-              <div
-                class="absolute top-0 right-0 m-3 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                <i data-lucide="shield" class="w-4 h-4 text-white"></i>
-              </div>
-            </div>
-            <div class="p-4 border border-gray-800 border-t-0">
-              <div class="flex justify-between items-start mb-2">
-                <div>
-                  <h4 class="text-sm font-medium text-white">Mercedes G63 AMG</h4>
-                  <p class="text-xs text-gray-500">4MATIC Stronger Than</p>
-                </div>
-                <span class="text-primary font-montserrat font-bold">€158,000</span>
-              </div>
-              <div class="flex items-center gap-3 text-xs text-gray-400 mt-3">
-                <span>2020</span>
-                <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
-                <span>48,000 km</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Car Card 4 -->
-          <div class="car-card bg-dark-secondary overflow-hidden group cursor-pointer delay-100">
-            <div class="car-image relative overflow-hidden aspect-[4/3]">
-              <img src="img/offers/Car.webp" alt="BMW M5" class="w-full h-full object-cover" />
-              <div
-                class="absolute top-0 right-0 m-3 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                <i data-lucide="shield" class="w-4 h-4 text-white"></i>
-              </div>
-            </div>
-            <div class="p-4 border border-gray-800 border-t-0">
-              <div class="flex justify-between items-start mb-2">
-                <div>
-                  <h4 class="text-sm font-medium text-white">BMW M5</h4>
-                  <p class="text-xs text-gray-500">Competition xDrive</p>
-                </div>
-                <span class="text-primary font-montserrat font-bold">€92,500</span>
-              </div>
-              <div class="flex items-center gap-3 text-xs text-gray-400 mt-3">
-                <span>2020</span>
-                <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
-                <span>38,000 km</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Car Card 5 -->
-          <div class="car-card bg-dark-secondary overflow-hidden group cursor-pointer delay-200">
-            <div class="car-image relative overflow-hidden aspect-[4/3]">
-              <img
-                src="img/offers/Car.webp"
-                alt="Tesla Model S"
-                class="w-full h-full object-cover" />
-              <div class="absolute bottom-0 left-0 bg-green-600 px-3 py-1 text-xs font-medium">
-                Electric
-              </div>
-              <div
-                class="absolute top-0 right-0 m-3 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                <i data-lucide="shield" class="w-4 h-4 text-white"></i>
-              </div>
-            </div>
-            <div class="p-4 border border-gray-800 border-t-0">
-              <div class="flex justify-between items-start mb-2">
-                <div>
-                  <h4 class="text-sm font-medium text-white">Tesla Model S</h4>
-                  <p class="text-xs text-gray-500">Plaid AWD</p>
-                </div>
-                <span class="text-primary font-montserrat font-bold">€115,000</span>
-              </div>
-              <div class="flex items-center gap-3 text-xs text-gray-400 mt-3">
-                <span>2023</span>
-                <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
-                <span>12,000 km</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Car Card 6 -->
-          <div class="car-card bg-dark-secondary overflow-hidden group cursor-pointer delay-300">
-            <div class="car-image relative overflow-hidden aspect-[4/3]">
-              <img
-                src="img/offers/Car.webp"
-                alt="BMW 7 Series"
-                class="w-full h-full object-cover" />
-              <div
-                class="absolute top-0 right-0 m-3 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                <i data-lucide="shield" class="w-4 h-4 text-white"></i>
-              </div>
-            </div>
-            <div class="p-4 border border-gray-800 border-t-0">
-              <div class="flex justify-between items-start mb-2">
-                <div>
-                  <h4 class="text-sm font-medium text-white">BMW 7 Series</h4>
-                  <p class="text-xs text-gray-500">740d xDrive Luxury</p>
-                </div>
-                <span class="text-primary font-montserrat font-bold">€68,000</span>
-              </div>
-              <div class="flex items-center gap-3 text-xs text-gray-400 mt-3">
-                <span>2019</span>
-                <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
-                <span>65,000 km</span>
-              </div>
-            </div>
-          </div>
+          <!-- Cars Will be rendered here -->
         </div>
 
         <!-- View All Button -->
         <div class="text-center mt-12">
-          <button
-            class="border border-gray-600 text-red-600 px-8 py-3 text-xs font-medium uppercase tracking-wider hover:bg-primary hover:border-primary transition">
+          <a
+            href="lease-offers.html"
+            class="inline-block border border-gray-600 text-red-600 px-8 py-3 text-xs font-medium uppercase tracking-wider hover:bg-red-600 hover:border-red-600 hover:text-white transition">
             All Cars
-          </button>
+          </a>
         </div>
       </div>
     </section>
@@ -513,7 +317,7 @@
     <section class="py-16 px-4 bg-white reviews-section">
       <div class="max-w-7xl mx-auto">
         <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
-          <div class="accent-line pl-6">
+          <div class="accent-line pl-6 reviews-header_container">
             <h3 class="text-xl font-montserrat font-bold text-black mb-1">Reviews</h3>
             <p class="text-xs text-gray-400">What our clients say about us</p>
           </div>
@@ -665,7 +469,7 @@
       <!-- Background Image -->
       <div class="absolute inset-0 z-0 opacity-80">
         <img
-          src="img/contacts-img.jpg"
+          src="img/contacts-img.webp"
           alt="contact-section-background"
           class="w-full h-full object-cover" />
       </div>
@@ -752,9 +556,9 @@
           </div>
 
           <!-- Google Maps Placeholder -->
-          <div>
+          <div class="contact-section-map_container">
             <div
-              class="group reveal delay-200 relative w-[28rem] min-h-[400px] border border-gray-800 rounded-lg">
+              class="group reveal delay-200 relative max-w-[28rem] min-h-[400px] border border-gray-800 rounded-lg">
               <!-- Google Map -->
               <iframe
                 src="https://www.google.com/maps?q=LA+AUTOSTORE,+21146+Ventura+Blvd+Suite+3,+Woodland+Hills,+CA+91364,+United+States&output=embed"
@@ -784,13 +588,14 @@
         <div class="flex flex-col md:flex-row justify-between items-center gap-6">
           <!-- Logo -->
           <div class="flex-shrink-0 flex items-center logo_container">
-            <a href="/index.html" class="flex items-baseline">
-              <img src="/img/logo_autostore.png" alt="logo" class="h-8 w-auto" />
+            <a href="index.html" class="flex items-baseline">
+              <img src="img/logo_autostore.webp" alt="logo" class="h-8 w-auto" />
             </a>
           </div>
 
           <!-- Nav -->
-          <div class="flex gap-6 text-xs text-gray-300 uppercase tracking-wider">
+          <div
+            class="flex gap-6 text-xs text-gray-300 uppercase tracking-wider footer-nav_container">
             <a href="lease-offers.html" class="hover:text-[var(--primary-hover)] transition"
               >Lease Offers</a
             >

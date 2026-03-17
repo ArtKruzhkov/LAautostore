@@ -1,3 +1,5 @@
+import { cars } from '../data/data.js';
+
 document.addEventListener('DOMContentLoaded', () => {
   initLucide();
   initMobileMenu();
@@ -7,10 +9,186 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initCarFiltering();
   initReviewCarousel();
-  initVideoModal();
   initStickyHeader();
-  // initFormInteractions();
+
+  renderLatetsOffers();
+  // initLatestOffersBrandFilter();
+  initSearchFilters();
+  initSearchRedirect();
 });
+
+// ======================
+// Search cars redirect
+// ======================
+function initSearchRedirect() {
+  const btn = document.getElementById('search-cars-btn');
+  const brandSelect = document.getElementById('brand-select');
+  const modelSelect = document.getElementById('model-select');
+  const yearSelect = document.getElementById('year-select');
+
+  if (!btn || !brandSelect || !modelSelect || !yearSelect) return;
+
+  btn.addEventListener('click', () => {
+    const brand = brandSelect.value;
+    const model = modelSelect.value;
+    const year = yearSelect.value;
+
+    const params = new URLSearchParams();
+
+    if (brand) params.append('brand', brand);
+    if (model) params.append('model', model);
+    if (year) params.append('year', year);
+
+    const url = `lease-offers.html?${params.toString()}`;
+
+    window.location.href = url;
+  });
+}
+
+// ======================
+// Latest offers brand filter
+// ======================
+// function initLatestOffersBrandFilter() {
+//   const brandFilter = document.getElementById('brand-filter');
+
+//   if (!brandFilter) return;
+
+//   const latestCars = cars.slice(0, 6);
+//   const brands = [...new Set(latestCars.map((car) => car.brand))].sort();
+
+//   brands.forEach((brand) => {
+//     const option = document.createElement('option');
+//     option.value = brand;
+//     option.textContent = brand;
+//     brandFilter.appendChild(option);
+//   });
+// }
+
+// ======================
+// Search filters params
+// ======================
+function initSearchFilters() {
+  const brandSelect = document.getElementById('brand-select');
+  const modelSelect = document.getElementById('model-select');
+  const yearSelect = document.getElementById('year-select');
+
+  if (!brandSelect || !modelSelect || !yearSelect) return;
+
+  const brands = [...new Set(cars.map((car) => car.brand))].sort();
+
+  const years = [...new Set(cars.map((car) => car.year))].sort((a, b) => b - a);
+
+  // ===== BRAND =====
+  brands.forEach((brand) => {
+    const option = document.createElement('option');
+    option.value = brand;
+    option.textContent = brand;
+    brandSelect.appendChild(option);
+  });
+
+  // ===== YEAR =====
+  years.forEach((year) => {
+    const option = document.createElement('option');
+    option.value = year;
+    option.textContent = year;
+    yearSelect.appendChild(option);
+  });
+
+  // ===== BRAND CHANGE → UPDATE MODELS =====
+  brandSelect.addEventListener('change', () => {
+    const selectedBrand = brandSelect.value;
+
+    modelSelect.innerHTML = `<option value="">Choose a model</option>`;
+
+    if (!selectedBrand) return;
+
+    const models = [
+      ...new Set(cars.filter((car) => car.brand === selectedBrand).map((car) => car.model)),
+    ];
+
+    models.forEach((model) => {
+      const option = document.createElement('option');
+      option.value = model;
+      option.textContent = model;
+      modelSelect.appendChild(option);
+    });
+  });
+
+  modelSelect.disabled = true;
+
+  brandSelect.addEventListener('change', () => {
+    modelSelect.disabled = false;
+  });
+}
+
+// ======================
+// Latest offers render
+// ======================
+function renderLatetsOffers() {
+  console.log(cars);
+  const carGrid = document.getElementById('car-grid');
+
+  if (!carGrid) return;
+
+  carGrid.innerHTML = '';
+
+  const latestCars = cars.slice(0, 6);
+
+  latestCars.forEach((car) => {
+    const card = document.createElement('a');
+
+    card.href = `item.html?id=${car.id}`;
+
+    card.className = 'block';
+
+    card.innerHTML = `
+      <div class="car-card bg-dark-secondary overflow-hidden group cursor-pointer">
+
+        <div class="car-image relative overflow-hidden aspect-[4/3]">
+          <img src="${car.images[0]}" alt="${car.brand} ${car.model}" class="w-full h-full object-cover" />
+        </div>
+
+        <div class="p-4 border border-gray-800 border-t-0">
+
+          <div class="flex justify-between items-start mb-2">
+
+            <div>
+              <h4 class="text-sm font-medium text-white">
+                ${car.brand} ${car.model}
+              </h4>
+
+              <p class="text-xs text-gray-500">
+                ${car.trim}
+              </p>
+            </div>
+
+            <span class="text-primary font-montserrat font-bold">
+              $${car.price.toLocaleString()}
+              <span class="text-xs text-gray-400">/ month</span>
+            </span>
+
+          </div>
+
+          <div class="flex items-center gap-3 text-xs text-gray-400 mt-3">
+            <span>${car.year}</span>
+
+            <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
+
+            <span>${car.mileage.toLocaleString()} mi</span>
+          </div>
+
+        </div>
+
+      </div>
+    `;
+
+    carGrid.appendChild(card);
+  });
+
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
+}
 
 // ======================
 // Lucide Icons
@@ -52,7 +230,7 @@ function initStickyHeader() {
 }
 
 // ======================
-// Counters (объединённая версия)
+// Counters
 // ======================
 function initCounters() {
   const counters = document.querySelectorAll('.counter');
@@ -95,23 +273,23 @@ function animateCounter(counter) {
 // ======================
 // Scroll Animations (fade-in-up)
 // ======================
-function initScrollAnimations() {
-  const elements = document.querySelectorAll('.fade-in-up');
+// function initScrollAnimations() {
+//   const elements = document.querySelectorAll('.fade-in-up');
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.15 },
-  );
+//   const observer = new IntersectionObserver(
+//     (entries) => {
+//       entries.forEach((entry) => {
+//         if (entry.isIntersecting) {
+//           entry.target.classList.add('visible');
+//           observer.unobserve(entry.target);
+//         }
+//       });
+//     },
+//     { threshold: 0.15 },
+//   );
 
-  elements.forEach((el) => observer.observe(el));
-}
+//   elements.forEach((el) => observer.observe(el));
+// }
 
 // ======================
 // Tabs + Filtering
@@ -160,9 +338,7 @@ function filterCars(filter) {
   });
 }
 
-function initCarFiltering() {
-  // уже вызывается внутри initTabs
-}
+function initCarFiltering() {}
 
 // ======================
 // Smooth Scroll
@@ -227,18 +403,6 @@ function initReviewCarousel() {
 }
 
 // ======================
-// Video Modal
-// ======================
-function initVideoModal() {
-  const video = document.querySelector('.video-container');
-  if (!video) return;
-
-  video.addEventListener('click', () => {
-    alert('Video modal would open here');
-  });
-}
-
-// ======================
 // Form Interactions
 // ======================
 function initScrollAnimations() {
@@ -254,8 +418,8 @@ function initScrollAnimations() {
       });
     },
     {
-      threshold: 0.2,
-      rootMargin: '0px 0px -15% 0px',
+      threshold: 0.1,
+      rootMargin: '0px 0px -5% 0px',
     },
   );
 
