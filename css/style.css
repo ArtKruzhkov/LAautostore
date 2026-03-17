@@ -739,9 +739,23 @@ input:focus-visible {
   clip-path: polygon(0 100%, 50% 2px, 100% 100%, 100% 0, 0 0);
 }
 
+@media (max-width: 980px) {
+  .section_gallery::before {
+    content: none;
+    display: none;
+  }
+}
+
 .client-gallery {
   position: relative;
+  padding: 0 25px;
 }
+
+/* @media (max-width: 1300px) {
+  .client-gallery {
+    padding: 0 40px;
+  }
+} */
 
 .client-gallery .owl-nav {
   position: absolute;
@@ -750,8 +764,8 @@ input:focus-visible {
 }
 
 .gallery-item {
-  width: 280px;
-  height: 190px;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   border-radius: 8px;
 }
@@ -776,8 +790,6 @@ input:focus-visible {
 
 /* Лево */
 .client-gallery .owl-nav button.owl-prev {
-  left: -25px;
-
   span {
     font-size: 3.5rem;
   }
@@ -785,12 +797,22 @@ input:focus-visible {
 
 /* Право */
 .client-gallery .owl-nav button.owl-next {
-  right: -20px;
+  right: 0px;
 
   span {
     font-size: 3.5rem;
   }
 }
+
+/* @media (max-width: 1300px) {
+  .client-gallery .owl-nav button.owl-prev {
+    left: 0;
+  }
+
+  .client-gallery .owl-nav button.owl-next {
+    right: 0;
+  }
+} */
 
 .client-gallery .owl-nav button:hover {
   color: var(--primary) !important;
