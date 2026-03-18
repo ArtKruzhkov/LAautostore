@@ -218,9 +218,9 @@ export const cars = [
     description: 'Tesla Model S Plaid is one of the fastest production sedans in the world.',
     images: [
       '/img/catalog/TeslaMain.webp',
-      '/img/catalog/TeslaGal1.jfif',
-      '/img/catalog/TeslaGal2.jfif',
-      '/img/catalog/TeslaGal3.jfif',
+      '/img/catalog/TeslaGal1.webp',
+      '/img/catalog/TeslaGal2.webp',
+      '/img/catalog/TeslaGal3.webp',
     ],
   },
 
