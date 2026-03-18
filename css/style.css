@@ -273,6 +273,12 @@ input[type='range']::-webkit-slider-runnable-track {
   border-radius: 2px;
 }
 
+@media (max-width: 639px) {
+  .accent-line-1::before {
+    height: 100%;
+  }
+}
+
 /* Team cards */
 
 .team-card {
