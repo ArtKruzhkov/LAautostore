@@ -12,9 +12,124 @@ document.addEventListener('DOMContentLoaded', () => {
   initStickyHeader();
 
   renderLatetsOffers();
-  // initLatestOffersBrandFilter();
   initSearchFilters();
   initSearchRedirect();
+
+  const form = document.getElementById('contact-form');
+
+  const fields = {
+    name: {
+      input: document.getElementById('name'),
+      error: document.getElementById('error-name'),
+    },
+    email: {
+      input: document.getElementById('email'),
+      error: document.getElementById('error-email'),
+    },
+    subject: {
+      input: document.getElementById('subject'),
+      error: document.getElementById('error-subject'),
+    },
+    message: {
+      input: document.getElementById('message'),
+      error: document.getElementById('error-message'),
+    },
+  };
+
+  function showError(field) {
+    field.input.classList.add('error');
+    field.error.classList.remove('hidden');
+  }
+
+  function clearError(field) {
+    field.input.classList.remove('error');
+    field.error.classList.add('hidden');
+  }
+
+  // очистка при вводе
+  Object.values(fields).forEach((field) => {
+    field.input.addEventListener('input', () => {
+      clearError(field);
+    });
+  });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    let isValid = true;
+
+    // Name
+    if (!fields.name.input.value.trim()) {
+      showError(fields.name);
+      isValid = false;
+    }
+
+    // Email
+    if (!fields.email.input.value.trim()) {
+      showError(fields.email);
+      isValid = false;
+    }
+
+    // Subject
+    if (!fields.subject.input.value) {
+      showError(fields.subject);
+      isValid = false;
+    }
+
+    // Message
+    if (!fields.message.input.value.trim()) {
+      showError(fields.message);
+      isValid = false;
+    }
+
+    if (!isValid) return;
+
+    console.log('Form submitted 🚀');
+  });
+
+  const modal = document.getElementById('contact-modal');
+  const openBtns = [document.getElementById('open-modal'), document.getElementById('open-modal-2')];
+  const closeBtn = document.getElementById('close-modal');
+  const overlay = modal?.querySelector('.modal-overlay');
+
+  // открыть
+  function openModal() {
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+
+    localStorage.setItem('modal-open', 'true');
+  }
+
+  // закрыть
+  function closeModal() {
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+
+    localStorage.removeItem('modal-open');
+  }
+
+  // кнопки открытия
+  openBtns.forEach((btn) => {
+    if (btn) {
+      btn.addEventListener('click', openModal);
+    }
+  });
+
+  // закрытие
+  closeBtn?.addEventListener('click', closeModal);
+  overlay?.addEventListener('click', closeModal);
+
+  // ESC закрытие
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeModal();
+    }
+  });
+
+  // восстановление после перезагрузки
+  if (localStorage.getItem('modal-open') === 'true') {
+    openModal();
+  }
 });
 
 // ======================
@@ -44,25 +159,6 @@ function initSearchRedirect() {
     window.location.href = url;
   });
 }
-
-// ======================
-// Latest offers brand filter
-// ======================
-// function initLatestOffersBrandFilter() {
-//   const brandFilter = document.getElementById('brand-filter');
-
-//   if (!brandFilter) return;
-
-//   const latestCars = cars.slice(0, 6);
-//   const brands = [...new Set(latestCars.map((car) => car.brand))].sort();
-
-//   brands.forEach((brand) => {
-//     const option = document.createElement('option');
-//     option.value = brand;
-//     option.textContent = brand;
-//     brandFilter.appendChild(option);
-//   });
-// }
 
 // ======================
 // Search filters params
@@ -271,27 +367,6 @@ function animateCounter(counter) {
 }
 
 // ======================
-// Scroll Animations (fade-in-up)
-// ======================
-// function initScrollAnimations() {
-//   const elements = document.querySelectorAll('.fade-in-up');
-
-//   const observer = new IntersectionObserver(
-//     (entries) => {
-//       entries.forEach((entry) => {
-//         if (entry.isIntersecting) {
-//           entry.target.classList.add('visible');
-//           observer.unobserve(entry.target);
-//         }
-//       });
-//     },
-//     { threshold: 0.15 },
-//   );
-
-//   elements.forEach((el) => observer.observe(el));
-// }
-
-// ======================
 // Tabs + Filtering
 // ======================
 function initTabs() {
@@ -403,7 +478,7 @@ function initReviewCarousel() {
 }
 
 // ======================
-// Form Interactions
+// Scroll Animation
 // ======================
 function initScrollAnimations() {
   const elements = document.querySelectorAll('.reveal');
@@ -425,15 +500,3 @@ function initScrollAnimations() {
 
   elements.forEach((el) => observer.observe(el));
 }
-
-// ======================
-// Spin Animation
-// ======================
-const style = document.createElement('style');
-style.textContent = `
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-`;
-document.head.appendChild(style);
