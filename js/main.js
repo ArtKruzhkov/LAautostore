@@ -131,7 +131,11 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const modal = document.getElementById('contact-modal');
-  const openBtns = [document.getElementById('open-modal'), document.getElementById('open-modal-2')];
+  const openBtns = [
+    document.getElementById('open-modal'),
+    document.getElementById('open-modal-2'),
+    document.getElementById('open-modal-mobile'),
+  ];
   const closeBtn = document.getElementById('close-modal');
   const overlay = modal?.querySelector('.modal-overlay');
 
@@ -151,7 +155,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   openBtns.forEach((btn) => {
     if (btn) {
-      btn.addEventListener('click', openModal);
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal();
+      });
     }
   });
 
