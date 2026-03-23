@@ -3,12 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LA Autostore - About Us</title>
+    <meta
+      name="description"
+      content="Learn more about LA Autostore, our experience in car leasing, financing, and helping clients find the perfect vehicle." />
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="img/favicon32x32.png" type="image/png" sizes="32x32" />
+    <link rel="icon" href="img/favicon16x16.png" type="image/png" sizes="16x16" />
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png" sizes="180x180" />
+    <title>LA Autostore | About Us</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
       rel="stylesheet" />
     <link rel="stylesheet" href="css/style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script src="https://unpkg.com/lucide@latest" defer></script>
     <script type="module" src="js/main.js"></script>
   </head>
@@ -536,18 +544,28 @@
             <!-- Name + Phone -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <input id="name" type="text" placeholder="Your Name" class="form-input" />
+                <input
+                  id="name"
+                  name="user_name"
+                  type="text"
+                  placeholder="Your Name"
+                  class="form-input" />
                 <div class="form-error hidden" id="error-name">Please enter your name</div>
               </div>
 
               <div>
-                <input type="tel" placeholder="Phone Number" class="form-input" />
+                <input name="phone" type="tel" placeholder="Phone Number" class="form-input" />
               </div>
             </div>
 
             <!-- Email -->
             <div>
-              <input id="email" type="email" placeholder="Email Address" class="form-input" />
+              <input
+                id="email"
+                name="user_email"
+                type="email"
+                placeholder="Email Address"
+                class="form-input" />
               <div class="form-error hidden" id="error-email">Please enter your email</div>
             </div>
 
@@ -576,6 +594,9 @@
                 class="form-input form-textarea"></textarea>
               <div class="form-error hidden" id="error-message">Please enter your message</div>
             </div>
+
+            <!-- Date -->
+            <input type="hidden" name="date_time" />
 
             <!-- Button -->
             <div class="flex justify-center">

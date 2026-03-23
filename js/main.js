@@ -1,6 +1,9 @@
 import { cars } from '../data/data.js';
 
+const emailjs = window.emailjs;
+
 document.addEventListener('DOMContentLoaded', () => {
+  emailjs.init('q_LG4tqiapZ_XgtpU');
   initLucide();
   initMobileMenu();
   initCounters();
@@ -46,12 +49,13 @@ document.addEventListener('DOMContentLoaded', () => {
     field.error.classList.add('hidden');
   }
 
-  // очистка при вводе
   Object.values(fields).forEach((field) => {
     field.input.addEventListener('input', () => {
       clearError(field);
     });
   });
+
+  const submitBtn = form.querySelector('button[type="submit"]');
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -84,7 +88,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!isValid) return;
 
-    console.log('Form submitted 🚀');
+    // button loading state
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+
+    // date
+    const now = new Date();
+    const formatted = now.toLocaleString('en-US', {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+    });
+
+    form.date_time.value = formatted;
+
+    emailjs
+      .sendForm('service_m6swn1f', 'template_vyu53sm', form)
+      .then(() => {
+        submitBtn.textContent = 'Sent ✓';
+        form.reset();
+
+        setTimeout(() => {
+          closeModal();
+
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Message';
+          submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+        }, 2000);
+      })
+      .catch((error) => {
+        console.error(error);
+
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+        submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+
+        alert('Error sending message');
+      });
   });
 
   const modal = document.getElementById('contact-modal');
@@ -92,7 +135,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeBtn = document.getElementById('close-modal');
   const overlay = modal?.querySelector('.modal-overlay');
 
-  // открыть
   function openModal() {
     modal.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
@@ -100,7 +142,6 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('modal-open', 'true');
   }
 
-  // закрыть
   function closeModal() {
     modal.classList.add('hidden');
     document.body.style.overflow = '';
@@ -108,25 +149,21 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.removeItem('modal-open');
   }
 
-  // кнопки открытия
   openBtns.forEach((btn) => {
     if (btn) {
       btn.addEventListener('click', openModal);
     }
   });
 
-  // закрытие
   closeBtn?.addEventListener('click', closeModal);
   overlay?.addEventListener('click', closeModal);
 
-  // ESC закрытие
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closeModal();
     }
   });
 
-  // восстановление после перезагрузки
   if (localStorage.getItem('modal-open') === 'true') {
     openModal();
   }
@@ -221,7 +258,6 @@ function initSearchFilters() {
 // Latest offers render
 // ======================
 function renderLatetsOffers() {
-  console.log(cars);
   const carGrid = document.getElementById('car-grid');
 
   if (!carGrid) return;
