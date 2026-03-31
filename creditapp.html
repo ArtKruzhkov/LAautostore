@@ -220,8 +220,17 @@
             <input type="email" placeholder="* Email" class="form-input mt-4" />
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-              <input type="text" placeholder="* Social Security Number" class="form-input" />
-              <input type="date" class="form-input" />
+              <!-- SSN -->
+              <div>
+                <label class="text-xs text-gray-300 mb-1 block">* Social Security Number</label>
+                <input type="text" placeholder="123-45-6789" class="form-input" />
+              </div>
+
+              <!-- DOB -->
+              <div>
+                <label class="text-xs text-gray-300 mb-1 block">* Date of Birth</label>
+                <input type="date" class="form-input date-input" />
+              </div>
             </div>
           </div>
 

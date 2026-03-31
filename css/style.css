@@ -1076,6 +1076,10 @@ input:focus-visible {
   }
 }
 
+.date-input {
+  min-height: 44px;
+}
+
 /* Modal */
 .form-input {
   width: 100%;
