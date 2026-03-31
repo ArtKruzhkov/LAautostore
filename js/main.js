@@ -135,6 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('open-modal'),
     document.getElementById('open-modal-2'),
     document.getElementById('open-modal-mobile'),
+    document.getElementById('open-modal-item'),
   ];
   const closeBtn = document.getElementById('close-modal');
   const overlay = modal?.querySelector('.modal-overlay');

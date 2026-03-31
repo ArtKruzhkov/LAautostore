@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="LA Autostore - Professional car leasing, financing assistance, and vehicle sourcing in Los Angeles. Find the best deals on your next car with our expert team." />
+      content="Explore LA Autostore services including leasing assistance, vehicle sourcing, financing guidance, and car rental solutions." />
+
     <meta
       name="keywords"
-      content="car leasing Los Angeles, auto financing, vehicle auction sourcing, car rental LA, auto broker, car deals California, LA Autostore" />
+      content="car leasing services, auto financing help, vehicle sourcing, car rental LA" />
     <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
     <link rel="icon" href="img/favicon32x32.png" type="image/png" sizes="32x32" />
     <link rel="icon" href="img/favicon16x16.png" type="image/png" sizes="16x16" />
     <link rel="apple-touch-icon" href="img/apple-touch-icon.png" sizes="180x180" />
-    <title>LA Autostore</title>
+    <title>LA Autostore | Credit Application</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
       rel="stylesheet" />
@@ -22,6 +23,7 @@
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script src="https://unpkg.com/lucide@latest" defer></script>
     <script type="module" src="js/main.js"></script>
+    <script src="js/creditapp.js" defer></script>
   </head>
   <body class="bg-white text-white overflow-x-hidden">
     <!-- Navigation -->
@@ -116,6 +118,11 @@
             >Lease Offers</a
           >
           <a
+            href="creditapp.html"
+            class="block px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800"
+            >Credit Application</a
+          >
+          <a
             href="services.html"
             class="block px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800"
             >Services</a
@@ -139,167 +146,261 @@
             href="#"
             id="open-modal-mobile"
             class="block px-3 py-2 text-sm text-white bg-primary mt-4 text-center"
-            >Order Now
-          </a>
+            >Order Now</a
+          >
         </div>
       </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="relative h-[53vh] min-h-[500px] flex items-end justify-center overflow-hidden">
-      <!-- Background Image -->
-      <div class="absolute inset-0 z-0">
+    <section class="bg-dark text-white" id="services">
+      <!-- IMAGE BLOCK -->
+      <div class="relative h-[53vh] min-h-[500px] overflow-hidden image_container">
         <img
-          src="img/main-img.webp"
-          alt="background-image_la-autostore"
-          class="w-full h-full object-cover" />
-        <div class="absolute inset-0 bg-black/20"></div>
-        <div
-          class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-      </div>
+          src="img/credit-img4.webp"
+          alt="credit-img"
+          class="absolute inset-0 w-full h-full object-cover" />
 
-      <!-- Content -->
-      <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mb-20">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-light font-montserrat mb-4 text-white">
-          Find your <span class="font-bold">perfect car</span>
-        </h1>
-        <p class="text-gray-300 text-lg mb-8 font-light">
-          Professional leasing assistance and vehicle selection in Los Angeles
-        </p>
-      </div>
-    </section>
+        <!-- Dark overlay -->
+        <div class="absolute inset-0 bg-black/10"></div>
 
-    <!-- Search Box -->
-    <section class="search-section triangles-down w-full backdrop-blur-sm py-6 relative">
-      <div class="max-w-7xl mx-auto px-4 md:px-6">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div class="relative">
-            <label class="block text-xs text-gray-400 mb-1 uppercase tracking-wider">Brand</label>
-            <select
-              id="brand-select"
-              class="w-full bg-dark-secondary border border-gray-700 text-white px-4 py-2.5 text-sm focus:outline-none focus:border-primary transition">
-              <option value="" selected>Select brand</option>
-            </select>
-          </div>
-          <div class="relative">
-            <label class="block text-xs text-gray-400 mb-1 uppercase tracking-wider">Model</label>
-            <select
-              id="model-select"
-              class="w-full bg-dark-secondary border border-gray-700 text-white px-4 py-2.5 text-sm focus:outline-none focus:border-primary transition">
-              <option value="" selected>Choose a model</option>
-            </select>
-          </div>
-          <div class="relative">
-            <label class="block text-xs text-gray-400 mb-1 uppercase tracking-wider">Year</label>
-            <select
-              id="year-select"
-              class="w-full bg-dark-secondary border border-gray-700 text-white px-4 py-2.5 text-sm focus:outline-none focus:border-primary transition">
-              <option value="" selected>Year of model</option>
-            </select>
+        <!-- Title on image -->
+        <div class="absolute inset-0 z-10 flex items-start">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-10">
+            <!-- Breadcrumb -->
+            <div class="text-xs text-gray-400 mb-3">
+              <a href="index.html" class="hover:text-[var(--primary-hover)] transition">Home</a>
+              <span class="mx-2 text-primary">/</span>
+              <span class="text-white">Credit Application</span>
+            </div>
+
+            <h1 class="text-5xl md:text-5xl font-montserrat tracking-wide font-bold">
+              <span class="inline-block">Credit Application</span>
+            </h1>
+
+            <div class="w-16 h-[2px] bg-primary mt-4"></div>
           </div>
         </div>
-        <div class="mt-6 flex justify-center">
-          <button
-            id="search-cars-btn"
-            class="bg-primary text-white px-8 py-3 text-sm font-medium uppercase tracking-wider hover:bg-primary-hover transition flex items-center gap-2">
-            <i data-lucide="search" class="w-4 h-4"></i>
-            Search Cars
+      </div>
+
+      <!-- CONTENT BLOCK -->
+      <div class="max-w-7xl mx-auto px-6 py-14">
+        <h2 class="text-3xl text-white font-bold mb-6">Secure Credit Application</h2>
+
+        <p class="text-gray-400 text-sm mb-10">
+          We can offer many sources of financing for our vehicles, including through credit unions.
+          Please fill out the form completely in order to qualify.
+        </p>
+
+        <!-- ADD CO-APPLICANT BUTTON -->
+        <div class="mb-10">
+          <button type="button" id="addCoApplicant" class="btn-coapplicant">
+            <span class="btn-coapplicant__icon">+</span>
+            <span class="btn-coapplicant__text">Add Co-Applicant</span>
           </button>
         </div>
-      </div>
-    </section>
 
-    <!-- Stats Section -->
-    <section class="stats-section py-12 px-4 bg-white">
-      <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
-        <div class="text-center delay-100">
-          <div
-            class="text-4xl md:text-5xl font-bold font-montserrat text-black mb-1 counter"
-            data-target="16">
-            0
-          </div>
-          <div class="text-xs text-gray-400 uppercase tracking-wider">
-            More than 16<br />years in the market
-          </div>
-        </div>
-        <div class="text-center delay-200">
-          <div
-            class="text-4xl md:text-5xl font-bold font-montserrat text-black mb-1 counter"
-            data-target="20">
-            0
-          </div>
-          <div class="text-xs text-gray-400 uppercase tracking-wider">
-            We work with 20+ car brands<br />
-            arranging leasing & financing
-          </div>
-        </div>
-        <div class="text-center delay-300">
-          <div
-            class="text-4xl md:text-5xl font-bold font-montserrat text-black mb-1 counter"
-            data-target="10">
-            0
-          </div>
-          <div class="text-xs text-gray-400 uppercase tracking-wider">
-            Sourcing vehicles from 10+<br />auto auctions across CA
-          </div>
-        </div>
-        <div class="text-center delay-400">
-          <div
-            class="text-4xl md:text-5xl font-bold font-montserrat text-black mb-1 counter"
-            data-target="24">
-            0
-          </div>
-          <div class="text-xs text-gray-400 uppercase tracking-wider">
-            Fast approvals<br />within 24 hours
-          </div>
-        </div>
-      </div>
-    </section>
+        <form class="space-y-10">
+          <!-- CONTACT INFO -->
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-4">Contact Information</h3>
 
-    <!-- About Section -->
-    <section id="about" class="py-12 px-4 bg-white text-center">
-      <div class="max-w-4xl mx-auto header_about_container">
-        <h2 class="text-3xl md:text-4xl font-montserrat text-black mb-4">
-          <span class="font-bold">LA</span> autostore provides<br />
-          <span class="font-light">modern leasing solutions and vehicle sourcing.</span>
-        </h2>
-        <div class="w-12 h-0.5 bg-gray-600 mx-auto my-6"></div>
-        <p class="text-gray-400 text-sm leading-relaxed mb-2">
-          We help our clients find the right car, arranging leasing options, and finding vehicles
-          based on their request.
-        </p>
-        <p class="text-gray-400 text-sm leading-relaxed mb-2">
-          From vehicle selection to leasing guidance — our team supports you throughout the entire
-          process.
-        </p>
-        <p class="text-gray-500 text-xs italic mt-6">"Your next car starts here."</p>
-      </div>
-    </section>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <input type="text" placeholder="* First Name" class="form-input" />
+              <input type="text" placeholder="Middle Initial" class="form-input" />
+              <input type="text" placeholder="* Last Name" class="form-input" />
+            </div>
 
-    <!-- Latest Offers Section -->
-    <section id="last-offers" class="py-10 px-4 bg-white reveal">
-      <div class="max-w-7xl mx-auto">
-        <!-- Section Header -->
-        <div class="flex flex-col md:flex-row justify-center items-start items-center mb-8 gap-4">
-          <div class="text-center">
-            <h3 class="text-4xl font-montserrat font-bold text-black mb-2">Latest offers</h3>
-            <p class="text-xs text-gray-400">Recently added vehicles.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+              <input type="tel" placeholder="* Day Phone" class="form-input" />
+              <input type="tel" placeholder="Evening Phone" class="form-input" />
+            </div>
+
+            <input type="text" placeholder="Best time to call?" class="form-input mt-4" />
+            <input type="email" placeholder="* Email" class="form-input mt-4" />
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+              <input type="text" placeholder="* Social Security Number" class="form-input" />
+              <input type="date" class="form-input" />
+            </div>
           </div>
-        </div>
 
-        <!-- Car Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="car-grid">
-          <!-- Cars Will be rendered here -->
-        </div>
+          <!-- ADDRESS -->
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-4">Address Information</h3>
 
-        <!-- View All Button -->
-        <div class="text-center mt-12">
-          <a
-            href="lease-offers.html"
-            class="inline-block border border-gray-600 text-red-600 px-8 py-3 text-xs font-medium uppercase tracking-wider hover:bg-red-600 hover:border-red-600 hover:text-white transition">
-            All Cars
-          </a>
-        </div>
+            <!-- GRID 2 COLUMNS -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <!-- LEFT: CURRENT ADDRESS -->
+              <div class="space-y-4">
+                <h4 class="text-sm text-gray-300">Current Address</h4>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <input type="text" placeholder="* Street" class="form-input" />
+                  <input type="text" placeholder="Apt. No." class="form-input" />
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <input type="text" placeholder="* City" class="form-input" />
+                  <input type="text" placeholder="* State" class="form-input" />
+                  <input type="text" placeholder="* Zip" class="form-input" />
+                </div>
+
+                <select class="form-input form-select">
+                  <option value="">* Rent or Own?</option>
+                  <option>Rent</option>
+                  <option>Own</option>
+                </select>
+
+                <input type="text" placeholder="Landlord / Mortgage Company" class="form-input" />
+                <input type="text" placeholder="* Rent / Mortgage Payment" class="form-input" />
+
+                <div class="flex items-center gap-4">
+                  <div class="w-1/2 text-sm text-gray-400">Time at Current Residence</div>
+
+                  <div class="w-1/2 grid grid-cols-2 gap-4">
+                    <input type="number" placeholder="* Years" class="form-input" />
+                    <input type="number" placeholder="* Months" class="form-input" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- RIGHT: PREVIOUS ADDRESS -->
+              <div
+                class="space-y-4 border-t md:border-t-0 md:border-l border-gray-800 md:pl-6 pt-6 md:pt-0">
+                <h4 class="text-sm text-gray-300">Previous Residence (If less than 2 years)</h4>
+
+                <select class="form-input form-select">
+                  <option value="">Previous Rent or Own</option>
+                  <option>Rent</option>
+                  <option>Own</option>
+                </select>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <input type="text" placeholder="Previous Street" class="form-input" />
+                  <input type="text" placeholder="Previous Apt. No." class="form-input" />
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <input type="text" placeholder="Previous City" class="form-input" />
+                  <input type="text" placeholder="Previous State" class="form-input" />
+                  <input type="text" placeholder="Previous Zip" class="form-input" />
+                </div>
+
+                <div class="flex items-center gap-4">
+                  <div class="w-1/2 text-sm text-gray-400">Time at Previous Residence</div>
+
+                  <div class="w-1/2 grid grid-cols-2 gap-4">
+                    <input type="number" placeholder="Years" class="form-input" />
+                    <input type="number" placeholder="Months" class="form-input" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- EMPLOYMENT -->
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-4">Employment Information</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <!-- LEFT: CURRENT EMPLOYMENT -->
+              <div class="space-y-4">
+                <h4 class="text-sm text-gray-300">Current Employment</h4>
+
+                <select class="form-input form-select">
+                  <option value="">* Employment Status</option>
+                  <option>Employed</option>
+                  <option>Self-employed</option>
+                  <option>Unemployed</option>
+                </select>
+
+                <input type="text" placeholder="* Company Name" class="form-input" />
+                <input type="text" placeholder="* Occupation" class="form-input" />
+                <input type="tel" placeholder="* Business Phone" class="form-input" />
+
+                <input type="text" placeholder="* Street (NO P.O BOX)" class="form-input" />
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <input type="text" placeholder="* City" class="form-input" />
+                  <input type="text" placeholder="* State" class="form-input" />
+                  <input type="text" placeholder="* Zip" class="form-input" />
+                </div>
+
+                <div class="flex items-center gap-4">
+                  <div class="w-1/2 text-sm text-gray-400">Time at Current Employer</div>
+
+                  <div class="w-1/2 grid grid-cols-2 gap-4">
+                    <input type="number" placeholder="* Years" class="form-input" />
+                    <input type="number" placeholder="* Months" class="form-input" />
+                  </div>
+                </div>
+
+                <input type="text" placeholder="* Monthly Income" class="form-input" />
+                <input type="text" placeholder="Additional Monthly Income" class="form-input" />
+                <input type="text" placeholder="Additional Income Source" class="form-input" />
+              </div>
+
+              <!-- RIGHT: PREVIOUS EMPLOYMENT -->
+              <div
+                class="space-y-4 border-t md:border-t-0 md:border-l border-gray-800 md:pl-6 pt-6 md:pt-0">
+                <h4 class="text-sm text-gray-300">Previous Employer (If less than two years)</h4>
+
+                <input type="text" placeholder="Previous Company Name" class="form-input" />
+
+                <input type="text" placeholder="Previous Occupation" class="form-input" />
+
+                <input type="tel" placeholder="Previous Business Phone" class="form-input" />
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <input type="text" placeholder="Previous City" class="form-input" />
+                  <input type="text" placeholder="Previous State" class="form-input" />
+                  <input type="text" placeholder="Previous Zip" class="form-input" />
+                </div>
+
+                <div class="flex items-center gap-4">
+                  <div class="w-1/2 text-sm text-gray-400">Time at Previous Employer</div>
+
+                  <div class="w-1/2 grid grid-cols-2 gap-4">
+                    <input type="number" placeholder="Years" class="form-input" />
+                    <input type="number" placeholder="Months" class="form-input" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CO-APPLICANT (dynamic) -->
+          <div id="coApplicantSection" class="hidden space-y-10 mt-10"></div>
+
+          <!-- VEHICLE -->
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-4">Vehicle Interested In</h3>
+
+            <input type="text" placeholder="Model" class="form-input" />
+            <textarea
+              rows="4"
+              placeholder="Comments"
+              class="form-input form-textarea mt-4"></textarea>
+
+            <input type="text" placeholder="How did you hear about us?" class="form-input mt-4" />
+          </div>
+
+          <!-- AGREEMENT -->
+          <div>
+            <p class="text-gray-400 text-xs leading-relaxed mb-4">
+              By submitting this credit application, you authorize us to check your credit and
+              verify your information.
+            </p>
+
+            <input type="text" placeholder="* Type Signature (e.g. J. Brown)" class="form-input" />
+          </div>
+
+          <!-- BUTTON -->
+          <div class="text-center pb-14">
+            <button class="btn-primary px-10 py-3">Submit Application</button>
+          </div>
+        </form>
       </div>
     </section>
 
@@ -579,7 +680,7 @@
           <!-- Google Maps Placeholder -->
           <div class="contact-section-map_container">
             <div
-              class="group reveal delay-200 relative max-w-[28rem] min-h-[400px] border border-gray-800 rounded-lg">
+              class="group reveal delay-200 relative w-[28rem] min-h-[400px] border border-gray-800 rounded-lg">
               <!-- Google Map -->
               <iframe
                 src="https://www.google.com/maps?q=LA+AUTOSTORE,+21146+Ventura+Blvd+Suite+3,+Woodland+Hills,+CA+91364,+United+States&output=embed"
