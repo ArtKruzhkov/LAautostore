@@ -25,7 +25,7 @@ function renderCar() {
     const img = document.createElement('img');
     img.src = image;
     img.alt = `${car.brand} ${car.model} thumbnail ${index + 1}`;
-    img.className = 'cursor-pointer object-cover h-24 w-full rounded';
+    img.className = 'thumb-image';
 
     img.addEventListener('click', () => {
       mainImage.src = img.src;

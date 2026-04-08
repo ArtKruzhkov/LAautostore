@@ -429,7 +429,7 @@ input:focus-visible {
   }
 }
 
-@media (max-width: 960px) {
+@media (max-width: 964px) {
   .header-bottom__bar_container a {
     font-size: 10px;
   }
@@ -726,7 +726,7 @@ input:focus-visible {
   }
 }
 
-@media (max-width: 1050px) {
+@media (max-width: 1240px) {
   .footer-nav_container {
     flex-wrap: wrap;
     justify-content: center;
@@ -1078,7 +1078,36 @@ input:focus-visible {
 
 .date-input {
   min-height: 44px;
-  max-height: 47px;
+  height: 47px;
+}
+
+#car-main-image {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+}
+
+@media (max-width: 1084px) {
+  #car-main-image {
+    height: auto;
+    object-fit: contain;
+    /* max-height: 305px; */
+  }
+}
+
+.thumb-image {
+  cursor: pointer;
+  object-fit: cover;
+  height: 6rem;
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+@media (max-width: 1084px) {
+  .thumb-image {
+    height: auto;
+    object-fit: contain;
+  }
 }
 
 /* Modal */
