@@ -786,6 +786,11 @@ input:focus-visible {
   clip-path: polygon(0 100%, 50% 2px, 100% 100%, 100% 0, 0 0);
 }
 
+.section_gallery-main::before {
+  display: none;
+  opacity: 0;
+}
+
 @media (max-width: 980px) {
   .section_gallery::before {
     content: none;
