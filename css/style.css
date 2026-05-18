@@ -1,3 +1,5 @@
+@import 'tailwindcss';
+
 :root {
   --primary: #e53935;
   --primary-hover: #c62828;
@@ -7,8 +9,6 @@
 }
 
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
@@ -841,19 +841,31 @@ input:focus-visible {
 }
 
 /* Лево */
-.client-gallery .owl-nav button.owl-prev {
+/* .client-gallery .owl-nav button.owl-prev {
   span {
     font-size: 3.5rem;
   }
+} */
+
+.client-gallery .owl-nav button.owl-prev span {
+  font-size: 3.5rem;
 }
 
 /* Право */
-.client-gallery .owl-nav button.owl-next {
+/* .client-gallery .owl-nav button.owl-next {
   right: 0px;
 
   span {
     font-size: 3.5rem;
   }
+} */
+
+.client-gallery .owl-nav button.owl-next {
+  right: 0px;
+}
+
+.client-gallery .owl-nav button.owl-next span {
+  font-size: 3.5rem;
 }
 
 /* @media (max-width: 1300px) {
